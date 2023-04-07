@@ -1,23 +1,111 @@
 template: titleslide
-# Using Eigen
-## Chris Richardson, Rupert Nash
-## chris@bpi.cam.ac.uk, r.nash@epcc.ed.ac.uk
-## CC-BY
+# Linear Algebra for C++ (using Eigen)
+## Joseph Lee, EPCC
+## j.lee@epcc.ed.ac.uk
 
 ---
-# What is Eigen3 and why use it?
-- C++ library for matrix arithmetic
-- “Header only” implementation: no libraries to compile and install (easy)
-- Provides some “missing” features needed for scientific computing in C++
-- Contains optimisations to get good performance out of ARM & Intel processors
-- Easy to use interface
-- Support for dense and sparse matrices, vectors and “arrays”
-- Some support for ‘solvers’ (A.x = b)
-- Download from https://eigen.tuxfamily.org or e.g. `apt install libeigen3-dev`
-- If you know Python, it is a bit like a NumPy for C++
+# Source
+
+Original: 
+- Chris Richardson (chris@bpi.cam.ac.uk)
+- Rupert Nash (r.nash@epcc.ed.ac.uk)
+---
+
+# Rundown
+
+- C++ Linear Algebra libraries: what and why?
+
+- Eigen3:
+  
+  - Getting started
+  
+  - Matrices: Dense, Sparse, Geometry
+  
+  - Solvers: Dense, Sparse, Iterative
+  
+  - General notes
+  
+  - Diffusion equation demo + exercise
+  
 
 ---
-# Basics
+
+# Linear Algebra: What do we need?
+
+__What for?__
+
+- Scientific computing, PDE, simulations, finance, graphics, ML and more
+
+__What we expect?__
+
+Numeric types: `complex<float>` `complex<double>`
+
+Object types:
+
+- Vectors
+
+- Matrix: (Dense / Sparse / Diagonal / Symmetric / Column/Row major)
+
+- Operations: Matrix (Multiplication/transpose/geometric rotation)
+
+- Solvers (`\(Ax = b\)`, Eigenvalues) : Direct (LU/QR factorization) / Indirect (CG)
+
+---
+
+# Why use a library?
+
+- Simple & easy to use : clean API
+  
+- Fast Performance
+  
+- Correctness
+  
+- Expressiveness
+  
+- Don’t reinvent the wheel
+
+---
+
+# Linear Algebra on C++
+
+- Simple: **Eigen**
+  
+- Big & popular: **PETSc** (C)
+  
+- Standard: **LAPACK/LAPACK++/ScaLAPACK**
+
+- GPU: Nvidia/AMD **(cu/roc)(BLAS/SPARSE/SOLVER)**
+  
+- CPU: **Intel MKL**, **OpenBLAS**
+  
+- Future: C++26 std library?
+  
+- vs: Python Numpy/Scipy
+  
+- <https://en.cppreference.com/w/cpp/links/libs>
+- <https://en.wikipedia.org/wiki/Comparison_of_linear_algebra_libraries>
+---
+
+# Eigen3
+
+## Numpy, but C++
+
+“Header only” no library to link
+ - `g++ -I /path/to/eigen/ my_program.cpp -o my_program`
+  
+Contains optimisation for ARM & Intel processors (Vectorization - SIMD instructions)
+  
+Easy to use interface
+  
+Support for dense and sparse matrices, vectors, and “arrays” (coefficient-wise ops)
+  
+Support for some solvers
+  
+Download from <https://eigen.tuxfamily.org> or e.g. apt install libeigen3-dev
+
+---
+
+# Matrix: Basic
 
 ```C++
 #include <Eigen/Dense>
@@ -51,18 +139,26 @@ std::cout << A.rows() << “ x ” << A.cols() << std::endl;
 So this is more like a 2D version of `std::vector<double>`
 
 ---
-# Convenience aliases
+# Convenience typedefs
 ```C++
-using Eigen::Matrix3d = Eigen::Matrix<double, 3, 3>
-using Eigen::Matrix3i = Eigen::Matrix<int, 3, 3>
-using Eigen::MatrixXd = Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic>
-using Eigen::VectorXd = Eigen::Matrix<double, Eigen::Dynamic, 1>
-using Eigen::RowVectorXd = Eigen::Matrix<double, 1, Eigen::Dynamic>
-
+MatrixNt  = Matrix<type, N, N>
+MatrixXNt = Matrix<type, Dynamic, N>
+MatrixNXt = Matrix<Dynamic, N, type>
+VectorNt  = Matrix<type, N, 1>
+RowVectorNt = Matrix<type, 1, N>
 ```
+```
+N = {2, 3, 4, X = dynamic}
+t = {i = int, f = float, d = double, cf = complex<float>, cd = complex<double>}
+```
+e.g.:
+- `Matrix3d` = 3x3 double matrix
+- `Matrix3i` = 3x3 int  matrix
+- `MatrixXd` = (Dynamic)x(Dynamic) double matrix
+- `VectorXd` = (Dynamic) double vector
 
 ---
-# You can do Matrix arithmetic...
+# Matrix arithmetics
 
 ```C++
 Eigen::MatrixXd A(5, 10);
@@ -73,7 +169,16 @@ Eigen::MatrixXd C = A * B;
 Eigen::VectorXd w = A * vec;
 ```
 
-Also dot and cross products for vectors, transpose, and usual scalar arithmetic `+ - * /`
+More:
+
+Dot product: `v.dot(w)`
+
+Cross product: `v.cross(w)`
+
+Transpose: `A.transpose()`
+
+Set constant:
+`A.setZeros(rows, cols)`, `A.setOnes(rows, cols)`, `A.setConstant(rows, cols, value)`, `A.setRandom(rows, cols)`
 
 ---
 #  Element-wise ops with `Array`s
@@ -107,16 +212,147 @@ a_eigen(10, 0) = 1.0;
 
 Eigen::Map<Eigen::MatrixXd> a2_eigen(a.data(), 10, 100);
 ```
+---
+# Sparse matrix: Basic
+
+When dealing with very large matrices with many zeros (e.g. from Differential Equations), store as sparse matrices
+
+```C++
+#include <Eigen/Sparse>
+
+SparseMatrix<std::complex<float> > mat(1000,2000); 
+// declares a 1000x2000 column-major compressed sparse matrix of complex<float>
+
+SparseMatrix<double,RowMajor> mat(1000,2000); 
+// declares a 1000x2000 row-major compressed sparse matrix of double
+
+SparseVector<std::complex<float> > vec(1000);
+// declares a column sparse vector of complex<float> of size 1000
+
+SparseVector<double,RowMajor> vec(1000); 
+// declares a row sparse vector of double of size 1000
+```
 
 ---
-# Efficiency: Eigen does lots of checks in debug mode
-
-Turn optimisation on: `-O2` etc.
-
-Turn off debug: `-DNDEBUG`
+# Sparse matrix
+Simplest way to create a sparse matrix is to build a triplet:
+```C++
+typedef Triplet<double> T;
+std::vector<T> tripletList;
+tripletList.reserve(estimation_of_entries);
+for(...)
+{
+// ...
+tripletList.push_back(T(i,j,v_ij));
+}
+SparseMatrixType m(rows,cols);
+m.setFromTriplets(tripletList.begin(), tripletList.end());
+// m is ready to go!
+```
+Operators:
+- Sparse: `SM.transpose()`, `SM.adjoint()`…
+- Sparse-Sparse: `SM1 + SM2`, `SM1 *SM2` …
+- Sparse-Dense: `DM2 = DM1 + SM1` , `DM2 = SM1* DM2`
 
 ---
-# Walk through example
+# Matrix: Geometry
+
+```C++
+#include <Eigen/Geometry>
+```
+- 2D Rotations: 
+```C++ 
+ Rotation2D<float> rot2(angle_in_radian)
+ ```
+- 3D Rotaions: 
+```C++
+AngleAxis<float> AA(angle_in_radian, Vector3f(ax,ay,az))
+```
+- Quarternion, ND-Transformations…
+
+---
+# Solvers
+
+Simple example: `\(Ax = b\)`
+```C++
+#include <iostream>
+#include <Eigen/Dense>
+
+int main()
+{
+    Eigen::Matrix3f A;
+    Eigen::Vector3f b;
+    A << 1,2,3, 4,5,6, 7,8,10;
+    b << 3, 3, 4;
+    std::cout << "Here is the matrix A:\n" << A << std::endl;
+    std::cout << "Here is the vector b:\n" << b << std::endl;
+    Eigen::Vector3f x = A.colPivHouseholderQr().solve(b); #HERE
+    std::cout << "The solution is:\n" << x << std::endl;
+}
+```
+2 steps:
+- Decompose
+- Solve
+
+---
+# Decompositions:
+
+E.g. 
+- PartialPivLU
+  
+- FullPivLU
+  
+- HouseholderQR
+  
+- ColPivHousehoulderQR
+
+Varying matrix requirements, speed, reliability, accuracy, optimization
+
+
+<https://eigen.tuxfamily.org/dox/group__TopicLinearAlgebraDecompositions.html>
+<https://eigen.tuxfamily.org/dox/group__DenseDecompositionBenchmark.html>
+---
+# Other solvers
+### Singular values
+E.g. JacobiSVD, BDCSVD
+  
+### Eigenvalues/vectors
+E.g. SelfAdjointEigenSolver, ComplexEigenSolver
+
+### Sparse Solver
+E.g. SparseLU, SparseQR, SimplicialLLT, SimplicialLDLT 
+
+---
+
+# Iterative Solvers
+
+```C++
+#include <Eigen/IterativeLinearSolvers>
+```
+Useful for solving `\(Ax = b\)` where `\(A\)` is large and sparse
+
+E.g.
+- ConjugateGradient
+ 
+- LeastSquaresConjugateGradient
+
+- BICGSTAB
+  
+Use with preconditioner
+
+---
+# General Notes:
+Eigen does a lot of checks in debug mode:
+
+- Turn optimisation on: `-O2` etc
+
+- Turn off debug: `-DNDEBUG`
+
+Can use external BLAS/LAPACK library (e.g. MKL, OpenBLAS) by enabling macro
+
+- e.g. `EIGEN_USE_BLAS`
+---
+# Demo: diffusion equation
 
 Solve diffusion equation
 
@@ -124,16 +360,16 @@ $$\frac{\partial T}{\partial t} = k \frac{\partial^2 T}{\partial x^2}$$
 
 in 1D using an explicit method
 
-Each timestep can be solved by using `\(T_{n+1} = A T_n\)`
+Each timestep can be iterated by using `\(T_{n+1} = A T_n\)`
 
-1. Create an initial vector for `T`
-2. Create a dense matrix for `A`
-3. Matrix multiply several times
-- Convert to an implicit method: `\(A.T_{n+1} = T_n\)`
-- Sparse matrices
+1. Create an initial vector for `\(T\)`
+   
+2. Create a dense matrix for `\(A\)`
+   
+3. Matrix multiply `\(A\)` several times
 
 
-Type along with me - see `exercises/eigen`
+See `exercises/eigen/explicit.cpp`
 
 ---
 # Diffusion equation (explicit) 
@@ -150,9 +386,6 @@ Left-hand side is unknown (next time step)
 
 Let: `\(\delta = k\Delta t/ \Delta x^2\)`
 
----
-# Matrix
-
 ```
 A = [ 1-ẟ ẟ    0    0    0 …        ]
     [ ẟ   1-2ẟ ẟ    0    0 …        ]
@@ -161,9 +394,9 @@ A = [ 1-ẟ ẟ    0    0    0 …        ]
     [ 0   0    0    ẟ    1-2ẟ ẟ  0 …]
 	
 ```
-
 ---
 # Diffusion equation (implicit)
+More stable: <https://en.wikipedia.org/wiki/Explicit_and_implicit_methods>
 
 Subscript means time, square brackets position
 
@@ -172,7 +405,37 @@ Subscript means time, square brackets position
 Left-hand side is unknown (next time step)
 `$$A.T_{n+1} = T_n$$`
 
-Let: $$\delta = k \Delta t/\Delta x^2$$
-
-???
+```
+A = [ 1+ẟ   -ẟ     0      0       0     …] 
+    [ -ẟ   1+2ẟ   -ẟ      0       0     …]
+    [ 0     -ẟ   1+2ẟ    -ẟ       0     …]
+    [ 0      0    -ẟ    1+2ẟ      -ẟ    …] 
+    [ 0      0     0     -ẟ      1+2ẟ   …]
+ 
+```
 The matrix A is very similar - just flip the sign of the delta terms
+
+---
+# Exercise: Diffusion equation (sparse)
+
+Hints:
+
+```C++
+#include <Eigen/Sparse>
+```
+```C++
+std::vector<Eigen::Triplet<double>> fill;
+    fill.reserve(...);
+```
+```C++
+for (int i = 0; i < n - 1; ++i)
+    {
+        fill.push_back(Eigen::Triplet<double>(...);
+        ...
+    }
+```
+```C++
+A.setFromTriplets(fill.begin(), fill.end());
+```
+
+See `exercises/eigen/sparse.cpp`
