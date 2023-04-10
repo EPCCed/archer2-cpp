@@ -38,8 +38,6 @@ __What for?__
 
 __What we expect?__
 
-Numeric types: `complex<float>` `complex<double>`
-
 Object types:
 
 - Vectors
@@ -50,6 +48,9 @@ Object types:
 
 - Solvers (`\(Ax = b\)`, Eigenvalues) : Direct (LU/QR factorization) / Indirect (CG)
 
+Numeric types: 
+
+- `complex<float>` `complex<double>`
 ---
 
 # Why use a library?
@@ -143,7 +144,7 @@ So this is more like a 2D version of `std::vector<double>`
 ```C++
 MatrixNt  = Matrix<type, N, N>
 MatrixXNt = Matrix<type, Dynamic, N>
-MatrixNXt = Matrix<Dynamic, N, type>
+MatrixNXt = Matrix<type, N, Dynamic>
 VectorNt  = Matrix<type, N, 1>
 RowVectorNt = Matrix<type, 1, N>
 ```
@@ -393,6 +394,35 @@ A = [ 1-ẟ ẟ    0    0    0 …        ]
     [ 0   0    ẟ    1-2ẟ ẟ    0  0 …] 
     [ 0   0    0    ẟ    1-2ẟ ẟ  0 …]
 	
+```
+---
+# Code:
+
+```C++ 
+    int n = 20;
+    int steps = 200;
+    std::vector<double> Avec(n * n);
+```
+```C++
+// Set up matrix A
+    Eigen::Map<Eigen::MatrixXd> A(Avec.data(), n, n);
+    A = Eigen::MatrixXd::Identity(n, n);
+    double delta = 0.4;
+    for (int i = 0; i < n - 1; ++i)
+    {
+        A(i + 1, i) += delta;
+        A(i + 1, i + 1) += -delta;
+
+        A(i, i) += -delta;
+        A(i, i + 1) += +delta;
+    }
+```
+
+```C++
+// T_n
+    Eigen::VectorXd b(n);
+    b.setZero();
+    b.head(n / 2).array() = 1.0;
 ```
 ---
 # Diffusion equation (implicit)
