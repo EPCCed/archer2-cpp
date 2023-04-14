@@ -255,7 +255,7 @@ Typically these are declared in the class definition...
 // complex.hpp
 struct Complex {
   // Constructors as before
-  double magnitude() const;
+  double magnitude(void) const;
 
   double re = 0.0;
   double im = 0.0;
@@ -508,7 +508,7 @@ If they do not need to change an instance, then they should be marked
 
 ```C++
 struct Complex {
-  double magnitude() const;
+  double magnitude(void) const;
 };
 ```
 
