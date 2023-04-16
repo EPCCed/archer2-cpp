@@ -1,24 +1,8 @@
 template: titleslide
 # Classes
-## Rupert Nash, EPCC
-## r.nash@epcc.ed.ac.uk
+## Maurice Jamieson, EPCC
+## m.jamieson@epcc.ed.ac.uk
 
----
-# Compiler explorer (Godbolt)
-
-A very useful tool is the Compiler Explorer - https://godbolt.org
-
-Type some code on the left and it will compiled with your choice of
-very many compilers.
-
-Will show compiler errors/warnings/reports and can execute your
-program.
-
-Can get shareable links to your code.
-
-???
-
-The name comes from the creator, Matt Godbolt
 
 ---
 # User defined types
@@ -54,7 +38,7 @@ Creating trivial types - give the class name then list the values to be assigned
 members, _in order_, inside braces:
 
 ```C++
-Complex mk_imaginary_unit() {
+Complex mk_imaginary_unit(void) {
   return Complex{0, 1};
 }
 ```
@@ -62,7 +46,7 @@ This is called aggregate initialisation.
 
 Alternatively:
 ```C++
-Complex mk_imaginary_unit() {
+Complex mk_imaginary_unit(void) {
   Complex sqrt_m1; // Values are uninitialised
   sqrt_m1.re = 0;
   sqrt_m1.im = 1;
@@ -76,10 +60,11 @@ Complex mk_imaginary_unit() {
 Using trivial types:
 
 ```C++
-void test() {
+void test(void) {
   Complex z = mk_imaginary_unit();
   assert(z.re == 0);
   assert(z.im == 1);
+  return 0;
 }
 ```
 
@@ -87,7 +72,8 @@ Any piece of code can access the member variables inside the object.
 
 ???
 
-This is probably something you're familiar with from other languages
+This is probably something you're familiar with from other languages and the
+same as C
 
 ---
 template: titleslide
@@ -106,11 +92,11 @@ struct Complex {
 };
 ```
 
-Now when you create an object it will be initialised to a know state
+Now when you create an object it will be initialised to a known state
 for you:
 
 ```C++
-void test() {
+void test(void) {
   Complex z;
   assert(z.re == 0);
   assert(z.im == 0);
@@ -142,7 +128,7 @@ struct Complex {
   double im = 0.0;
 };
 
-Complex mk_imaginary_unit() {
+Complex mk_imaginary_unit(void) {
   return Complex{0, 1};
 }
 ```
@@ -246,11 +232,12 @@ other languages might call them methods
 For example:
 
 ```C++
-int main() {
+int main(void) {
   std::string name;
   std::cin >> name;
   std::cout << "Hello, " << name << ". "
             << "Your name has " << name.size() << " characters." << std::endl;
+  return 0;
 }
 ```
 ???
@@ -268,7 +255,7 @@ Typically these are declared in the class definition...
 // complex.hpp
 struct Complex {
   // Constructors as before
-  double magnitude() const;
+  double magnitude(void) const;
 
   double re = 0.0;
   double im = 0.0;
@@ -286,7 +273,7 @@ If anyone asks, discussion of const is coming up!
 
 ```C++
 // complex.cpp
-double Complex::magnitude() const {
+double Complex::magnitude(void) const {
   return std::sqrt(re*re + im*im);
 }
 ```
@@ -304,7 +291,8 @@ assert(z.magnitude() == 5.0);
 ???
 
 The compiler inserts an implicit argument referring to the current
-instance for us
+instance for us, known as the 'this' pointer. See https://www.learncpp.com/cpp-tutorial/the-hidden-this-pointer/
+for more info
 
 ---
 # More on operator overloading
@@ -327,6 +315,8 @@ Complex operator+(Complex const& a, Complex const& b) {
   return Complex{a.re+b.re, a.im+b.im};
 }
 ```
+
+Here, `operator+=` is using the implicit `this` pointer
 
 ???
 
@@ -399,7 +389,7 @@ elsewhere in the class scope
 ```C++
 class Greeter {
   std::string greetee;
-  void say_hello() const {
+  void say_hello(void) const {
     std::cout << "Hello, " << greetee << std::endl;
   }
 };
@@ -420,7 +410,7 @@ Compiler will say something like
 class Greeter {
   std::string greetee;
 public:
-  void say_hello() const {
+  void say_hello(void) const {
     std::cout << "Hello, " << greetee << std::endl;
   }
 };
@@ -438,7 +428,7 @@ Why is encapsulation worth bothering with? Enforces modularity and can
 without have to re-write the client code
 
 A class can declare another function (or class) its `friend` which
-allows only that bit of code to touch its private members.
+allows only that bit of code to access its private member variables.
 
 This is a controlled, partial relaxation of encapsulation that often
 makes the whole system more isolated.
@@ -458,13 +448,14 @@ Variables can be qualified with the `const` keyword
 - compiler will give errors if you try 
 
 ```C++
-int main() {
+int main(void) {
   int const i = 42;
   std::cout << i << std::endl;
   // prints 42
 
   i += 10;
   // error: cannot assign to variable 'i' with const-qualified type 'const int'
+  return 0;
 }
 ```
 
@@ -517,7 +508,7 @@ If they do not need to change an instance, then they should be marked
 
 ```C++
 struct Complex {
-  double magnitude() const;
+  double magnitude(void) const;
 };
 ```
 
@@ -606,7 +597,7 @@ void ScaleVector(double scale, std::vector<double>& x) {
   // Multiply every element of x by scale
 }
 
-void test() {
+void test(void) {
   std::vector<double> data = ReadLargeFile();
   ScaleVector(-1.0, data);
 }
@@ -659,12 +650,12 @@ class AtomList {
   std::vector<Vec3> velocity;
   std::vector<double> charge;
 public:
-  std::vector<double> const& GetCharge() const {
+  std::vector<double> const& GetCharge(void) const {
     return charge;
   }
 };
 
-void analyse_md_data() {
+void analyse_md_data(void) {
   AtomList const atoms = ReadFromFile();
   std::vector<double> const& charges = atoms.GetCharge();
   std::cout << "Average charge = "
@@ -699,7 +690,7 @@ reference and/or `const`:
 
 ???
 
-Note double ampersand in 2nd point - it's called a forwarding reference and we will
+Note double ampersand in 2nd point - it's called a 'forwarding reference' and we will
 come back to it
 
 Refer back to the last slide codes and ask
@@ -757,7 +748,8 @@ The exceptions being templates and `inline` functions if anyone asks
 
 Suffixes mostly meaningless to the compiler but don't surprise people!
 
-Prefer earlier in the list
+Prefer earlier in the list i.e. .hpp and .cpp to differentiate between C++
+and C code
 
 ---
 # Where to put these
@@ -783,7 +775,7 @@ Complex operator+(Complex const& a, Complex const& b);
 ```
 ???
 
-Draw attention to the include guard idiom
+Draw attention to the include guard idiom - include the file only once
 
 ---
 # Exercise
@@ -792,7 +784,7 @@ In your clone of this repository, find the `complex` exercise and list
 the files
 
 ```
-$ cd archer2-CPP-2021-07-20/exercises/complex
+$ cd archer2-cpp/exercises/complex
 $ ls
 Makefile	complex.cpp	complex.hpp	test.cpp
 ```
@@ -815,4 +807,4 @@ bugs!
 
 ???
 
-Ask who knows about make maybe?
+Ask who knows about 'make' maybe?

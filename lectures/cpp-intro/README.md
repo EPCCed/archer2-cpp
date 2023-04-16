@@ -1,8 +1,8 @@
 template: titleslide
 
 # A brief introduction to C++
-## Rupert Nash
-## r.nash@epcc.ed.ac.uk
+## Maurice Jamieson, EPCC
+## m.jamieson@epcc.ed.ac.uk
 
 ---
 
@@ -126,7 +126,7 @@ Every three years there is a new update to the International Standard
 Latest one, C++20, still not fully implemented by an compiler. Major
 new features are ranges, coroutines, concepts, and modules
 
-Next one, in 2023, just beginning. Major features likely to include
+C++23 is still in draft (N4944). Major features likely to include
 networking, string formatting, executors, and consolidation of new
 C++20 features
 
@@ -140,6 +140,10 @@ C++20 features
 
 -   Best online *reference* is <http://en.cppreference.com/>
     (comes in other human languages too!)
+
+-   [cppreference.com](https://en.cppreference.com/w/cpp/compiler_support#cpp20) 
+    also lists the level of C++ standards support (including C++20) for a number of compilers
+    (e.g. GCC, Clang, MSVC, Intel C++) 
 
 -   Scott Meyers, "Effective Modern C++", 2014. This is *the* book to
     get once you know your way around C++, but you want to improve.
@@ -160,8 +164,9 @@ name: hello
 ```C++
 #include <iostream>
 
-int main() { 
+int main(void) { 
   std::cout << "Hello, world!" << std::endl;
+  return 0;
 }
 ```
 
@@ -194,8 +199,17 @@ template: hello
 
 - The compiler and OS arrange for this to be called when you run it.
 
-- (Not shown, but you can also get the command line arguments)
+- The `return 0` statement indicates to the OS that no error occured.
 
+- (You can also get the command line arguments but `void` here means we
+  aren't using them).
+
+???
+
+The 'main' function is the 'entry point' of the program and its integer return value
+allows a program or error status to be returned to the operating system.
+
+There are 'main' function exit (return) values defined in <cstdlib>
 ---
 template: hello
 
@@ -213,9 +227,9 @@ template: hello
 template: hello
 
 - The standard library uses the bitwise left shift operator (`<<`) to
-  mean stream insertion
+  mean stream insertion:
 
-- I.e. output the right hand side to the left.
+  - i.e. output the right hand side to the left.
 
 - Every statement in C++ must be terminated with a semicolon (`;`)
 
@@ -235,30 +249,34 @@ __Your machine__ : you need a C++ compiler that supports at least
 C++11. If you use Windows and MSVC we may not be able to help
 much... Sorry!
 
-__Cirrus__: You have log in details.
+__ARCHER2__: You have log in details.
 
 Once connected you need to load the up-to-date compilers:
 ```
-module load gcc/8.2.0
+module load gcc/10.2.0
 ```
+
+???
+
+There are later versions of GCC on ARCHER2 but 10.2.0 is the default version
 
 ---
 # Getting the source code
 
 All these slides and the exerices are available on GitHub:
-https://github.com/EPCCed/archer2-CPP-2021-07-20
+https://github.com/EPCCed/archer2-cpp
 
 You also can view the slides and other materials in a browser by going
-to https://EPCCed.github.io/archer2-CPP-2021-07-20/
+to https://EPCCed.github.io/archer2-cpp
 
 In the terminal, you need to use git get a copy of the exercises:
 ```
-git clone https://github.com/EPCCed/archer2-CPP-2021-07-20
+git clone https://github.com/EPCCed/archer2-cpp
 ```
 
 Then you can change to the directory with this simple program
 ```
-cd archer2-CPP-2021-07-20/lectures/cpp-intro/hello
+cd archer2-cpp/lectures/cpp-intro/hello
 ```
 
 ---
@@ -283,6 +301,23 @@ Run it:
 ```
 ./hello
 ```
+
+---
+# Compiler explorer (Godbolt)
+
+A very useful tool is the Compiler Explorer - https://godbolt.org
+
+Type some code on the left and it will compiled with your choice of
+very many compilers.
+
+Will show compiler errors/warnings/reports and can execute your
+program.
+
+Can get shareable links to your code.
+
+???
+
+The name comes from the creator, Matt Godbolt
 
 ---
 template: titleslide
@@ -350,7 +385,7 @@ template: titleslide
 
 | Type        | Description |
 |-------------|-------------|
-| `void`      | Nothing - used to indicate a function returns no value.|
+| `void`      | Nothing - used to indicate a function takes and/or returns no value.|
 | `bool`      | `true` or `false` |
 | `int`       | Standard *signed* integer for your machine. *At least* 16bits. *Usually* 32 bits.|
 | `double`    | Double-precision floating point. *Usually* an IEEE 754 64 bit number.|
@@ -384,9 +419,10 @@ use it.
 #include <iostream>
 #include <string>
 
-int main() {
+int main(void) {
   std::string message = "Hello, world";
   std::cout << message << std::endl;
+  return 0;
 }
 ```
 
@@ -395,7 +431,7 @@ Character encoding in the standard library is a bit of a mess.
 
 Partially fixed in C++20
 
-Find a library if you need to do serious text handling because Unicode
+Find a library e.g. Boost, if you need to do serious text handling because Unicode
 is super complicated
 
 ---
@@ -409,12 +445,13 @@ A function encapsulates a piece of code between braces (curly
 brackets, `{}`) and gives it a name so you can use it later.
 
 ```C++
-void say_hello() {
+void say_hello(void) {
   std::cout << "Hello, world!" << std::endl;
 }
 
 int main(int argc, char* argv[]) {
   say_hello();
+  return 0;
 }
 ```
 ???
@@ -423,7 +460,10 @@ You declare function by first giving the return type (`void`)
 
 Then the name (`say_hello`)
 
-Then the list of zero or more parameters
+Then the list of zero or more parameters. If the parameter list is zero,
+then you can use empty brackets but just as we would use 'void' to mark that
+a function doesn't return a value, we can use 'void' within the brackets to
+indicate that the function doesn't take parameters.
 
 ---
 # Functions
@@ -441,7 +481,7 @@ int sum(int a, int b) {
 }
 ```
 
-Can alse use trailing return type (aka "east end functions"):
+Since C++11, we can alse use a _trailing return type_ (aka "east end functions"):
 ```C++
 auto sum(int a, int b) -> int {
   return a + b;
@@ -458,17 +498,22 @@ In this case, by us telling it later
 ---
 # Functions
 
-To use a function - to "call" it - you give its name and then provide
+To use a function, or "call" it, you give its name and then provide
 the arguments in parentheses
 
 ```
-int main () {
+int main (void) {
   int x = 42;
   std::cout << "Total = " << sum(x, 100) << std::endl;
+  return 0;
 }
 ```
 
-The parameters to the function must match the (a) declaration.
+The parameters to the function must match the declaration.
+
+The `return 0` statement in the `main(void)` function is optional but you
+have to have a `return` statement in all other functions that return a
+value.
 
 ---
 # Function overloading
@@ -532,11 +577,15 @@ We'll come back to this!
 
 ???
 
+Here, 'data_file' is given the type 'std::string' by the compiler using
+"type inference"
+
 In general we'd recommend using auto quite a lot "Almost always auto"
 
 Why?
 
 Can't have an uninitialized variable
+
 
 Add types - on RHS as constructors - when you need to ensure the type
 of something (is known to the reader).
@@ -549,7 +598,7 @@ of something (is known to the reader).
 #include <iostream>
 #include <string>
 
-void say_hello() {
+void say_hello(void) {
   std::cout << "Hello, world!" << std::endl;
 }
 
@@ -561,6 +610,8 @@ int main(int argc, char* argv[]) {
 
   // Have the program greet the user by name
   say_hello(name);
+
+  return 0;
 }
 ```
 
