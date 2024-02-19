@@ -10,4 +10,3 @@ See each subdirectory for further instructions
 * [Using algorithms](algorithm/)
 * [Eigen](eigen/)
 * [Simple use of threads](threads/)
-* [Portable performance with Kokkos](kokkos/)
