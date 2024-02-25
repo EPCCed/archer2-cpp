@@ -249,7 +249,7 @@ Note that an object in C++ may not be an object in the OOP sense!
 ---
 # Member functions
 
-Typically these are declared in the class definition...
+Typically these are *declared* in the class definition...
 
 ```C++
 // complex.hpp
@@ -269,7 +269,7 @@ If anyone asks, discussion of const is coming up!
 ---
 # Member functions
 
-... and defined out of line
+... and *defined* out of line
 
 ```C++
 // complex.cpp
