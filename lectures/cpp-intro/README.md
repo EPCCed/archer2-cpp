@@ -1,7 +1,7 @@
 template: titleslide
 
 # A brief introduction to C++
-## Maurice Jamieson, EPCC
+## James Maurice Jamieson, EPCC
 ## m.jamieson@epcc.ed.ac.uk
 
 ---
