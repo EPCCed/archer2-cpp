@@ -1,8 +1,8 @@
 template: titleslide
 
 # A brief introduction to C++
-## James Maurice Jamieson, EPCC
-## m.jamieson@epcc.ed.ac.uk
+## James Richings, EPCC
+## j.richings@epcc.ed.ac.uk
 
 ---
 
@@ -243,7 +243,7 @@ template: titleslide
 ---
 # Machine choice
 
-You can use your laptop or Cirrus
+You can use your laptop or ARCHER2
 
 __Your machine__ : you need a C++ compiler that supports at least
 C++11. If you use Windows and MSVC we may not be able to help

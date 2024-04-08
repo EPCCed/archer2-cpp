@@ -1,8 +1,8 @@
 template: titleslide
 
 # Algorithms, lambdas, traits
-## Rupert Nash
-## r.nash@epcc.ed.ac.uk
+## James Richings
+## j.richings@epcc.ed.ac.uk
 
 ---
 
@@ -534,7 +534,7 @@ void Comm::send(const std::vector<T>& data, int dest, int tag) {
 
 # Real example
 
-Then we can then provide a specialised defintion for all the types we
+Then we can then provide a specialised definition for all the types we
 can handle:
 
 ```C++

@@ -1,7 +1,7 @@
 template: titleslide
 # Templates
-## Rupert Nash
-## r.nash@epcc.ed.ac.uk
+## James Richings
+## j.richings@epcc.ed.ac.uk
 
 ???
 

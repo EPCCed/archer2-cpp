@@ -1,7 +1,7 @@
 template: titleslide
 # Containers, loops, and iterators
-## Rupert Nash
-## r.nash@epcc.ed.ac.uk
+## James Richings
+## j.richings@epcc.ed.ac.uk
 
 ???
 
@@ -464,7 +464,7 @@ In your clone of this repository, find the `containers` exercise and list
 the files
 
 ```
-$ cd archer2-CPP-2021-07-20/exercises/containers
+$ cd archer2-cpp/exercises/containers
 $ ls
 Makefile	test.cpp	vector_ex.cpp	vector_ex.hpp
 ```
