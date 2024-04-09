@@ -1,11 +1,15 @@
+
 # Morton order matrices in C++
-## Rupert Nash
-## r.nash@epcc.ed.ac.uk
+## James Richings
+## j.richings@epcc.ed.ac.uk
+
+
+# Sample code
 
 Source for this can be obtained from Github. Get a new copy with:
 
 ```
-git clone https://github.com/EPCCed/archer2-CPP-2021-07-20
+git clone https://github.com/EPCCed/archer2-cpp
 ```
 
 or update your existing one with
@@ -17,15 +21,17 @@ git pull
 then you can
 
 ```
-cd archer2-CPP-2021-07-20/exercises/morton-order
+cd archer2-cpp/exercises/morton-order
 ```
+
+# Morton ordering
 
 The Morton ordering (or z-ordering) of a matrix lays out the elements
 along a recursive z-shaped curve, as shown in the figure of four
 iterations of the Z-order curve (from
-[Wikipedia](https://en.wikipedia.org/wiki/Z-order_curve)).
+[z ordered curve](https://en.wikipedia.org/wiki/Z-order_curve)).
 
-![Morton order](mortonorder.png)
+# Indices
 
 You can compute the Morton index `z` from the x- and y-indices (`i`
 and `j` respectively) by interleaving their bits. An example is shown
@@ -33,10 +39,10 @@ in the table.
 
 |    |  0 |  1 |  2 |  3 |
 |----|----|----|----|----|
-| 0  |   0|   1|   4|   5|
-| 1  |   2|   3|   6|   7|
-| 2  |   8|   9|  12|  13|
-| 3  |  10|  11|  14|  15|
+|  0 |   0|   1|   4|  5 |
+|  1 |   2|   3|   6|   7|
+|  2 |   8|   9|  12|  13|
+|  3 |  10|  11|  14|  15|
 
 Mapping between `x-y` indexes and Morton index for a 4 by 4
 matrix. Decimal on the left and binary on the right.
@@ -50,6 +56,8 @@ matrix. Decimal on the left and binary on the right.
 
 Mapping between `x-y` indexes and Morton index for a matrix of size 
 4-by-4. Decimal on the left and binary on the right.
+
+
 
 The advantage of laying out data in this way is that it improves data
 locality (and hence cache use) without having to tune a block size or
@@ -76,7 +84,7 @@ number.
 Go to the step 1 directory:
 
 ```bash
-cd  archer2-CPP-2021-07-20/exercises/morton-order/step1
+cd  archer2-cpp/exercises/morton-order/step1
 ```
 
 Using the partial implemenation in `matrix.hpp`, your task is to
@@ -95,7 +103,7 @@ supplied `Makefile` should work.
 Go to the step 2 directory:
 
 ```bash 
-cd  archer2-CPP-2021-07-20/exercises/morton-order/step2
+cd  archer2-cpp/exercises/morton-order/step2
 ```
 
 I have a potential solution to part 1 here, but feel free to copy your

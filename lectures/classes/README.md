@@ -1,7 +1,7 @@
 template: titleslide
 # Classes
-## Maurice Jamieson, EPCC
-## m.jamieson@epcc.ed.ac.uk
+## James Richings, EPCC
+## j.richings@epcc.ed.ac.uk
 
 
 ---
