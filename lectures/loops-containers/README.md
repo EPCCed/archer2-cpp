@@ -1,7 +1,7 @@
 template: titleslide
 # Containers, loops, and iterators
-## James Richings
-## j.richings@epcc.ed.ac.uk
+## Nathan Mannall
+## n.mannall@epcc.ed.ac.uk
 
 ???
 
@@ -428,7 +428,10 @@ Discuss pre-increment (optimiser is not perfect)
 
 Discuss `operator*`
 
-Discuss `operator==`
+Discuss `operator==`. While `operator<` is prefered for numeric comparisons
+in loop conditions, it is conventional to use `operator!=` to test if an
+iterator has reached the end element. This is because some iterator types are
+not relationally comparable, but `operator!=` works with all iterator types
 
 ---
 # Implementing your own iterator
