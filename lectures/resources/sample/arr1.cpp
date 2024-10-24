@@ -8,10 +8,13 @@ public:
   my_array(unsigned n) : size(n), data(new double[n]) {
     std::cout << "Constructing: " << data << std::endl;
   }
+
+  // Destructor
   ~my_array() {
     std::cout << "Destroying: " <<data << std::endl;
     delete[] data;
   }
+
   double& operator[](unsigned i) {
     return data[i];
   }
