@@ -1,8 +1,8 @@
 template: titleslide
 
 # Algorithms, lambdas, traits
-## James Richings
-## j.richings@epcc.ed.ac.uk
+## Nathan Mannall
+## n.mannall@epcc.ed.ac.uk
 
 ---
 
@@ -201,7 +201,7 @@ std::vector<float> SquareAndAddConst(const std::vector<float>& x, float c) {
   ans.resize(x.size());
   
   std::transform(x.begin(), x.end(), ans.begin(),
-	SquareAndAddConst(c));
+	SquareAndAddConstF(c));
   return ans;
 }
 ```
