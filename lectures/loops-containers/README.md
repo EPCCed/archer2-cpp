@@ -472,14 +472,18 @@ $ ls
 Makefile	test.cpp	vector_ex.cpp	vector_ex.hpp
 ```
 
-As before, `test.cpp` holds some basic unit tests.
+As before, `test.cpp` holds some basic unit tests, and you can compile with `make`.
 
-`vector_ex.cpp`/`.hpp` hold some functions that work on `std::vector` - provide the implementations
+**Part 1**
 
-The tests require that you implement, in a new header/implementation
-pair of files, a function to add a string to a `std::map` as the key,
-the value being the length of the string.
+`vector_ex.cpp`/`.hpp` hold some functions that work on `std::vector` - provide
+the implementations.
+
+
+**Part 2**
+
+Implement, in a new header/implementation pair of files (`map_ex.hpp`/`.cpp`),
+a function (`AddWord`) that adds a string to a `std::map` as the key, the value
+being the length of the string.
 
 You will want to find the documentatation for `map` on https://en.cppreference.com/
-
-You can compile with `make` as before.

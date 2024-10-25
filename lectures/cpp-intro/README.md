@@ -617,6 +617,12 @@ int main(int argc, char* argv[]) {
 }
 ```
 
+**Exercise:**
+
+Change `say_hello` to accept the name it reads from the
+terminal, create a new message saying "Hello, $NAME!" and
+print it to standard output.
+
 ???
 
 What I'd like you to do is change `say_hello` to accept the name it
