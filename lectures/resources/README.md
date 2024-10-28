@@ -1,8 +1,8 @@
 template: titleslide
 
 # Resource management
-## James Richings, EPCC
-## j.richings@epcc.ed.ac.uk
+## Nathan Mannall, EPCC
+## n.mannall@epcc.ed.ac.uk
 
 ---
 # Resources
@@ -245,7 +245,7 @@ Compile and run
 
 What happens if we copy x?
 
-Add `auto x_cp = x;`
+Add `auto x_cp = x;` (same as `auto x_cp = my_array{x};`)
 
 ---
 # Copying

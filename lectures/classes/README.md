@@ -1,7 +1,7 @@
 template: titleslide
 # Classes
-## James Richings, EPCC
-## j.richings@epcc.ed.ac.uk
+## Nathan Mannall, EPCC
+## n.mannall@epcc.ed.ac.uk
 
 
 ---
@@ -17,7 +17,7 @@ struct Complex {
 };
 ```
 
-Let's show this on Compiler Explorer: https://godbolt.org/z/j8Kf31T89
+Let's show this on Compiler Explorer: https://godbolt.org/z/d3MfGhPz5
 
 This style of type is often called a "plain old data" (POD) type or a
 "trivial" type.
@@ -38,7 +38,7 @@ Creating trivial types - give the class name then list the values to be assigned
 members, _in order_, inside braces:
 
 ```C++
-Complex mk_imaginary_unit(void) {
+Complex mk_imaginary_unit() {
   return Complex{0, 1};
 }
 ```
@@ -46,7 +46,7 @@ This is called aggregate initialisation.
 
 Alternatively:
 ```C++
-Complex mk_imaginary_unit(void) {
+Complex mk_imaginary_unit() {
   Complex sqrt_m1; // Values are uninitialised
   sqrt_m1.re = 0;
   sqrt_m1.im = 1;
@@ -60,7 +60,7 @@ Complex mk_imaginary_unit(void) {
 Using trivial types:
 
 ```C++
-void test(void) {
+void test() {
   Complex z = mk_imaginary_unit();
   assert(z.re == 0);
   assert(z.im == 1);
@@ -96,7 +96,7 @@ Now when you create an object it will be initialised to a known state
 for you:
 
 ```C++
-void test(void) {
+void test() {
   Complex z;
   assert(z.re == 0);
   assert(z.im == 0);
@@ -128,7 +128,7 @@ struct Complex {
   double im = 0.0;
 };
 
-Complex mk_imaginary_unit(void) {
+Complex mk_imaginary_unit() {
   return Complex{0, 1};
 }
 ```
@@ -185,20 +185,24 @@ the compiler must not create one unless asked to...
 Let's define the ones we declared just now:
 
 ```C++
-Complex::Complex(double real) : re(real) {
+Complex::Complex(double real) : re{real} {
 }
 
-Complex::Complex(double real, double imag) : re(real), im(imag) {
+Complex::Complex(double real, double imag) : re{real}, im{imag} {
 }
 ```
 
 ???
 
-Point out the member initialiser syntax after the colon
+Point out the member initialiser syntax after the colon. Can use parenthesis
+rather than curly brackets.
 
 Assert that this is where you want to do as much initialisation as you
 possibly can.
 
+The members in a member initialiser list are always initialised in the order in
+which they are defined inside the class (not in the order they are defined in the
+member initializer list).
 
 ---
 # Creating complexes
@@ -227,12 +231,10 @@ C++
 > associated.
 
 In C++ these attached bits of code are known as member functions -
-other languages might call them methods
-
-For example:
+other languages might call them methods. For example:
 
 ```C++
-int main(void) {
+int main() {
   std::string name;
   std::cin >> name;
   std::cout << "Hello, " << name << ". "
@@ -255,7 +257,7 @@ Typically these are *declared* in the class definition...
 // complex.hpp
 struct Complex {
   // Constructors as before
-  double magnitude(void) const;
+  double magnitude() const;
 
   double re = 0.0;
   double im = 0.0;
@@ -273,7 +275,7 @@ If anyone asks, discussion of const is coming up!
 
 ```C++
 // complex.cpp
-double Complex::magnitude(void) const {
+double Complex::magnitude() const {
   return std::sqrt(re*re + im*im);
 }
 ```
@@ -389,7 +391,7 @@ elsewhere in the class scope
 ```C++
 class Greeter {
   std::string greetee;
-  void say_hello(void) const {
+  void say_hello() const {
     std::cout << "Hello, " << greetee << std::endl;
   }
 };
@@ -410,7 +412,7 @@ Compiler will say something like
 class Greeter {
   std::string greetee;
 public:
-  void say_hello(void) const {
+  void say_hello() const {
     std::cout << "Hello, " << greetee << std::endl;
   }
 };
@@ -448,7 +450,7 @@ Variables can be qualified with the `const` keyword
 - compiler will give errors if you try 
 
 ```C++
-int main(void) {
+int main() {
   int const i = 42;
   std::cout << i << std::endl;
   // prints 42
@@ -508,7 +510,7 @@ If they do not need to change an instance, then they should be marked
 
 ```C++
 struct Complex {
-  double magnitude(void) const;
+  double magnitude() const;
 };
 ```
 
@@ -517,7 +519,9 @@ struct Complex {
 `this` pointer, if anyone asks, but we don't like pointers
 
 
-Member variables can be marked `const`, but don't do it
+Member variables can be marked `const`, but don't do it:
+https://www.sandordargo.com/blog/2020/11/11/when-use-const-2-member-variables
+
 
 ---
 # East-const vs West-const
@@ -557,7 +561,7 @@ template: titleslide
 ---
 # Copying
 
-By default, if assign a variable a new value, C++ will copy it
+By default, if you assign a variable a new value, C++ will copy it
 ```C++
 double copy = original;
 ```
@@ -597,7 +601,7 @@ void ScaleVector(double scale, std::vector<double>& x) {
   // Multiply every element of x by scale
 }
 
-void test(void) {
+void test() {
   std::vector<double> data = ReadLargeFile();
   ScaleVector(-1.0, data);
 }
@@ -650,12 +654,12 @@ class AtomList {
   std::vector<Vec3> velocity;
   std::vector<double> charge;
 public:
-  std::vector<double> const& GetCharge(void) const {
+  std::vector<double> const& GetCharge() const {
     return charge;
   }
 };
 
-void analyse_md_data(void) {
+void analyse_md_data() {
   AtomList const atoms = ReadFromFile();
   std::vector<double> const& charges = atoms.GetCharge();
   std::cout << "Average charge = "

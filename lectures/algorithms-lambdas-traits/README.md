@@ -1,8 +1,8 @@
 template: titleslide
 
 # Algorithms, lambdas, traits
-## James Richings
-## j.richings@epcc.ed.ac.uk
+## Nathan Mannall
+## n.mannall@epcc.ed.ac.uk
 
 ---
 
@@ -201,7 +201,7 @@ std::vector<float> SquareAndAddConst(const std::vector<float>& x, float c) {
   ans.resize(x.size());
   
   std::transform(x.begin(), x.end(), ans.begin(),
-	SquareAndAddConst(c));
+	SquareAndAddConstF(c));
   return ans;
 }
 ```
@@ -554,3 +554,24 @@ MPI_Datatype DataTypeTraits<float>::Get() {
 If we try to communicate a data type we haven't specialised for, we
 will get a compile time error!
 
+---
+# Algorithms Exercise
+
+In your clone of this repository, find the `algorithm` exercise and list
+the files
+
+```
+$ cd archer2-cpp/exercises/algorithm
+$ ls
+Makefile	ex.cpp	README.md
+```
+
+In the file `ex.cpp` there is an incomplete program which, by
+following the instructions in the comments, you can finish.
+
+You will likely want to refer to the documentation of the standard
+library algorithms, which, for reasons, are split across two headers:
+
+- <https://en.cppreference.com/w/cpp/algorithm>
+
+- <https://en.cppreference.com/w/cpp/numeric#Numeric_algorithms>

@@ -1,7 +1,7 @@
 template: titleslide
 # Templates
-## James Richings
-## j.richings@epcc.ed.ac.uk
+## Nathan Mannall
+## n.mannall@epcc.ed.ac.uk
 
 ???
 
@@ -151,11 +151,49 @@ public:
 ---
 # Where to put your implementation?
 
+```C++
+// main.cpp
+
+#include <iostream>
+
+template <typename T>
+T addOne(T x); // function template forward declaration
+
+int main()
+{
+    std::cout << addOne(1) << '\n';
+    std::cout << addOne(2.3) << '\n';
+
+    return 0;
+}
+```
+
+```C++
+// add.cpp
+
+template <typename T>
+T addOne(T x) // function template definition
+{
+    return x + 1;
+}
+```
+
+???
+`main.cpp` will compile - it can see the forward declartion and trusts the implementaitons will be compiled.
+
+`add.cpp` will compile, but not it will not instatiate anything as it does
+not see any uses of the `addOne` function. Therefore you will get a linker error.
+
+We fix this by putting all the template code in a header file. Each `.cpp` file
+will see the template definition and instatiate any functions as needed.
+
+---
+# Where to put your implementation?
+
 Templates are *not* executable code - they tell the compiler how to
 create it.
 
-So the definition must be available in the translation unit of the user of your template -
-i.e. typically in a header file.
+So the definition must be available in the translation unit of the user of your template - i.e. typically in a header file.
 
 You can define the functions in place like:
 
@@ -181,6 +219,9 @@ my_array<T>::my_array(unsigned n) : _size(n) {
 Point out the uglier syntax of the second form but on the other hand
 the class definition shown earlier is cleaner with only the member
 function declarations
+
+But surely this process can cause the same function to be defined in
+multiple places? (Next slide)
 
 ---
 # Templates and the One Definition Rule
