@@ -3,8 +3,8 @@
 #
 # C compiler and options for Intel
 #
-CC=     icpc 
-CFLAGS = -fast -std=c++11 
+CC=     g++ 
+CFLAGS = -O2 -std=c++11 
 LIB=    -lm -lpthread 
 
 #
