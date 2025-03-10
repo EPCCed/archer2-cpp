@@ -339,3 +339,31 @@ copy add a reference `&`
 
 The `auto` keyword follows the same rules as template argument
 deduction
+
+---
+template: titleslide
+# Exercise
+
+---
+# Templates Exercise
+
+In your clone of this repository, find the `5-templates` exercise. It contains two sub-directories `part1` and `part2`.
+
+**Part 1**
+
+1. Have a look at `sum.cpp`. Do you think it will compile? If so, what will the output be?
+2. Compile and run the provided code with `make && ./sum`. Is the result what you expected? Can you explain what is happening at line 12?
+```C++
+11    sum(3, 4);
+12    sum(3.2, 5.1);
+13    // sum("Hello", "World!");
+```
+3. Uncomment line 13. What happens when you try to compile?
+4. Change the `sum()` function to use type templating. How does this change the output?
+
+
+**Part 2**
+
+`complex.cpp` contains a working version of the complex number class. Change the class declaration and definitions to use type templating.
+
+As before, `test.cpp` holds some basic unit tests and you can compile with `make`.
