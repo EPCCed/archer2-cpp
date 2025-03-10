@@ -415,7 +415,7 @@ You have to `#include <string>` to use it which includes the "header
 file" that contains all the information the compiler needs to let you
 use it.
 
-```
+```C++
 #include <iostream>
 #include <string>
 
@@ -443,7 +443,7 @@ template: titleslide
 
 Use if to specify weather a block of code should be executed based on a condition.
 
-```
+```C++
 if (condition) {
   //block of code
 }
@@ -463,7 +463,7 @@ You can combine conditions together to make more complex logic:
 
 - and
 
-```
+```C++
 if (condition A && condition B) {
   //block of code
 }
@@ -471,7 +471,7 @@ if (condition A && condition B) {
 
 - or
 
-```
+```C++
 if (condition A || condition B) {
   //block of code
 }
@@ -482,7 +482,7 @@ if (condition A || condition B) {
 
 The `else` statement allows you to specify what happens if the condition is false:
 
-```
+```C++
 if (condition) {
   // block of code executes when condition true
 }
@@ -496,7 +496,7 @@ else {
 
 More complex control flow can be generated with else if:
 
-```
+```C++
 if (condition 1) {
   // block of code executes when condition 1 is true
 }
@@ -516,14 +516,14 @@ else {
 
 In some cases you might want to be more compact
 
-```
+```C++
 variable = (condition) ? expression if True : expression if False;
 ```
 
 ---
 # Switch statement
 
-```
+```C++
 switch(expression)
   case a:
     // code block if expression = value a

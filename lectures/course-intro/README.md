@@ -5,9 +5,8 @@ template: titleslide
 ## j.richings@epcc.ed.ac.uk
 
 ---
-
 template: titleslide
-# Time table
+# Timetable
 
 ---
 # Day 1
@@ -71,8 +70,7 @@ template: titleslide
 - 3:05 - 4:00 : Time to work on exercises from the day & ask questions
 
 --- 
-
-### Access to ARCHER2
+# Access to ARCHER2
 
 - SAFE: https://safe.epcc.ed.ac.uk/
 
