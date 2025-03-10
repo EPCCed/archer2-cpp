@@ -297,69 +297,6 @@ instance for us, known as the 'this' pointer. See https://www.learncpp.com/cpp-t
 for more info
 
 ---
-# More on operator overloading
-
-Complex numbers have the usual arithmetic operations: `\(+-\times\div\)`
-
-We can provide operator overloads, like:
-
-```C++
-struct Complex {
-  // Other members...
-
-  Complex& operator+=(Complex const & increment) {
-    re += increment.re;
-    im += increment.im;
-    return *this;
-  }
-};
-Complex operator+(Complex const& a, Complex const& b) {
-  return Complex{a.re+b.re, a.im+b.im};
-}
-```
-
-Here, `operator+=` is using the implicit `this` pointer
-
-???
-
-Recall that these are just functions (with funny names)
-
-We have a member function `operator+=` and a non-member (aka free
-function)
-
-The compiler is already implicitly turning `a+b` into plus(a, b)
-internally.
-
-If anyone asks, references and `const` coming up
-
----
-# More on operator overloading
-
-Complex numbers have the usual arithmetic operations
-(`\(+-\times\div\)`) and comparisons.
-
-We can now use the natural syntax to add these values
-
-```C++
-Complex i{0, 1};
-
-Complex z;
-z += i;
-
-assert(z.re == 0 && z.im == 1);
-
-auto c = z + i;
-assert(c == 2*i);
-```
-
-???
-
-We could also overload multiplication and equality comparison as shown
-in the last line
-
-Go look up the complete list on CPP Reference!
-
----
 # Classes and structs
 
 You define a class using either the `struct` or `class` keywords -
@@ -434,6 +371,175 @@ allows only that bit of code to access its private member variables.
 
 This is a controlled, partial relaxation of encapsulation that often
 makes the whole system more isolated.
+
+---
+template: titleslide
+# C++ compilation
+
+---
+# Declarations vs Definitions
+
+C++ distinguishes between *declaration* and *definition*.
+
+A **declaration** tells the compiler that a name exists, what kind of
+entity it refers to and (if it is a function or variable) its
+type. For most uses this is all the compiler needs. Declarations can
+be repeated, as long as they match *exactly*.
+
+A **definition** tells the compiler everything it needs to create
+something in its entirety. A definition is also a declaration. The
+one-definition rule says that definitions must not be repeated (with
+an exception).
+
+???
+
+The exceptions being templates and `inline` functions if anyone asks
+
+---
+# Where to put these
+
+- Conventionally, one puts declarations of functions, definitions of
+  classes, and global constants in **header** files.
+
+	- Common suffixes are: `.hpp`, `.h`, `.H`
+
+- Definitions of most functions should be in **implementation** files
+
+	- Common suffixes are `.cpp`, `.cxx`, `.cc`, `.C`
+
+- Headers can be be `#include` into other files that need to use the
+  types and function declared there.
+
+???
+
+Suffixes mostly meaningless to the compiler but don't surprise people!
+
+Prefer earlier in the list i.e. .hpp and .cpp to differentiate between C++
+and C code
+
+---
+# Where to put these
+
+E.g. Complex.hpp:
+
+```C++
+#ifndef COMPLEX_HPP
+#define COMPLEX_HPP
+
+struct Complex {
+  Complex() = default;
+  Complex(double real, double imag);
+  double real()  // etc...
+private:
+  double re;
+  double im;
+};
+
+#endif
+```
+
+Complex.cpp
+
+```C++
+#include "complex.hpp"
+
+Complex::Complex(double real, double image) : re(real), im(imag) {}
+
+double Complex::real() {
+  return re
+}
+```
+???
+
+Draw attention to the include guard idiom - include the file only once
+
+---
+# Exercise
+
+In your clone of this repository, find the `2.1-class-types` exercise and list the files
+
+```bash
+$ cd archer2-cpp/exercises/2.1-class-types
+$ ls
+Makefile  README.md  complex.cpp  complex.hpp  test.cpp
+```
+
+The files `complex.hpp` and `complex.cpp` contain the beginings of a complex number class. Follow the instructions in the comments to complete the missing declarations in `complex.hpp` and then add the required out of line definitions in `complex.cpp`.
+
+To test your implementation, `test.cpp` holds some basic unit tests created using the Catch2 unit testing library.
+
+You can compile and run with:
+
+```bash
+$ make && ./test
+g++ --std=c++14 -I../include -c -o complex.o complex.cpp
+g++ complex.o test.o -o test
+===============================================================================
+All tests passed (36 assertions in 5 test cases)
+```
+
+---
+# More on operator overloading
+
+Complex numbers have the usual arithmetic operations: `\(+-\times\div\)`
+
+We can provide operator overloads, like:
+
+```C++
+struct Complex {
+  // Other members...
+
+  Complex& operator+=(Complex const & increment) {
+    re += increment.re;
+    im += increment.im;
+    return *this;
+  }
+};
+Complex operator+(Complex const& a, Complex const& b) {
+  return Complex{a.re+b.re, a.im+b.im};
+}
+```
+
+Here, `operator+=` is using the implicit `this` pointer
+
+???
+
+Recall that these are just functions (with funny names)
+
+We have a member function `operator+=` and a non-member (aka free
+function)
+
+The compiler is already implicitly turning `a+b` into plus(a, b)
+internally.
+
+If anyone asks, references and `const` coming up
+
+---
+# More on operator overloading
+
+Complex numbers have the usual arithmetic operations
+(`\(+-\times\div\)`) and comparisons.
+
+We can now use the natural syntax to add these values
+
+```C++
+Complex i{0, 1};
+
+Complex z;
+z += i;
+
+assert(z.re == 0 && z.im == 1);
+
+auto c = z + i;
+assert(c == 2*i);
+```
+
+???
+
+We could also overload multiplication and equality comparison as shown
+in the last line
+
+Go look up the complete list on CPP Reference!
 
 
 ---
@@ -709,86 +815,14 @@ Refer back to the last slide codes and ask
   mutable reference then it would be a mutable ref while `auto const&`
   would have stayed constant)
 
-
----
-template: titleslide
-# C++ compilation
-
----
-# Declarations vs Definitions
-
-C++ distinguishes between *declaration* and *definition*.
-
-A **declaration** tells the compiler that a name exists, what kind of
-entity it refers to and (if it is a function or variable) its
-type. For most uses this is all the compiler needs. Declarations can
-be repeated, as long as they match *exactly*.
-
-A **definition** tells the compiler everything it needs to create
-something in its entirety. A definition is also a declaration. The
-one-definition rule says that definitions must not be repeated (with
-an exception).
-
-???
-
-The exceptions being templates and `inline` functions if anyone asks
-
----
-# Where to put these
-
-- Conventionally, one puts declarations of functions, definitions of
-  classes, and global constants in **header** files.
-
-	- Common suffixes are: `.hpp`, `.h`, `.H`
-
-- Definitions of most functions should be in **implementation** files
-
-	- Common suffixes are `.cpp`, `.cxx`, `.cc`, `.C`
-
-- Headers can be be `#include` into other files that need to use the
-  types and function declared there.
-
-???
-
-Suffixes mostly meaningless to the compiler but don't surprise people!
-
-Prefer earlier in the list i.e. .hpp and .cpp to differentiate between C++
-and C code
-
----
-# Where to put these
-
-E.g. Complex.hpp:
-
-```C++
-#ifndef COMPLEX_HPP
-#define COMPLEX_HPP
-
-struct Complex {
-  Complex() = default;
-  // etc...
-private:
-  double re;
-  double im;
-};
-
-Complex operator+(Complex const& a, Complex const& b);
-// Etc...
-
-#endif
-```
-???
-
-Draw attention to the include guard idiom - include the file only once
-
 ---
 # Exercise
 
-In your clone of this repository, find the `complex` exercise and list
+In your clone of this repository, find the `2.2-complex` exercise and list
 the files
 
 ```
-$ cd archer2-cpp/exercises/complex
+$ cd archer2-cpp/exercises/2.2-complex
 $ ls
 Makefile	complex.cpp	complex.hpp	test.cpp
 ```
