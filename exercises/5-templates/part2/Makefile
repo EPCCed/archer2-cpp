@@ -1,6 +1,6 @@
 CXXFLAGS = --std=c++14 -I../../include
 
-test : complex.o test.o
+test : test.o
 	$(CXX) $^ -o $@
 
 test.o : catch.hpp
