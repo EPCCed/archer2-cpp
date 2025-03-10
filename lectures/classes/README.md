@@ -818,11 +818,11 @@ Refer back to the last slide codes and ask
 ---
 # Exercise
 
-In your clone of this repository, find the `complex` exercise and list
+In your clone of this repository, find the `2.2-complex` exercise and list
 the files
 
 ```
-$ cd archer2-cpp/exercises/complex
+$ cd archer2-cpp/exercises/2.2-complex
 $ ls
 Makefile	complex.cpp	complex.hpp	test.cpp
 ```
