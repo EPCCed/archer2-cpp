@@ -1,4 +1,4 @@
-# Containers exercise
+# Templates exercise
 
 In your clone of this repository, find the `5-templates` exercise. It contains two sub-directories `part1` and `part2`.
 
