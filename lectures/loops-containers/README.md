@@ -463,16 +463,16 @@ template: titleslide
 ---
 # Containers exercise
 
-In your clone of this repository, find the `containers` exercise and list
-the files
+In your clone of this repository, find the `3-containers` exercise. It contains two sub-directories `part1` and `part2`. List
+the files in `part1`:
 
-```
-$ cd archer2-cpp/exercises/containers
+```bash
+$ cd archer2-cpp/exercises/3-containers/part1
 $ ls
-Makefile	test.cpp	vector_ex.cpp	vector_ex.hpp
+Makefile  test.cpp  vector_ex.cpp  vector_ex.hpp
 ```
 
-As before, `test.cpp` holds some basic unit tests, and you can compile with `make`.
+As before, `test.cpp` holds some basic unit tests and you can compile with `make`.
 
 **Part 1**
 
@@ -484,6 +484,6 @@ the implementations.
 
 Implement, in a new header/implementation pair of files (`map_ex.hpp`/`.cpp`),
 a function (`AddWord`) that adds a string to a `std::map` as the key, the value
-being the length of the string.
+being the length of the string. Note: Copy your completed `vector_ex.cpp`/`.hpp` files from part 1.
 
 You will want to find the documentatation for `map` on https://en.cppreference.com/
