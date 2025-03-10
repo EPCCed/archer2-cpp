@@ -605,7 +605,7 @@ In this case, by us telling it later
 To use a function, or "call" it, you give its name and then provide
 the arguments in parentheses
 
-```
+```C++
 int main () {
   int x = 42;
   std::cout << "Total = " << sum(x, 100) << std::endl;
@@ -660,41 +660,6 @@ std::cout << sum(d2, 1e6) << std::endl;
 std::cout << sum(d2, i1) << std::endl;
 std::cout << sum(name, file) << std::endl;
 ```
-
----
-# Operators are functions
-
-C++ operators, for the non-fundamental types, are just functions with odd
-names, e.g.:
-```C++
-std::string operator+(const std::string& a, const std::string& b);
-```
-
-You can then use the natural syntax when manipulating these in other
-code:
-
-```C++
-std::string user_name = "alice";
-auto data_file = user_name + ".csv";
-```
-
-We'll come back to this!
-
-???
-
-Here, 'data_file' is given the type 'std::string' by the compiler using
-"type inference"
-
-In general we'd recommend using auto quite a lot "Almost always auto"
-
-Why?
-
-Can't have an uninitialized variable
-
-
-Add types - on RHS as constructors - when you need to ensure the type
-of something (is known to the reader).
-
 
 ---
 # Let's write some code
