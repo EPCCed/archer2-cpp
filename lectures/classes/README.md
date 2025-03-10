@@ -479,7 +479,43 @@ All tests passed (36 assertions in 5 test cases)
 ```
 
 ---
-# More on operator overloading
+template: titleslide
+# Operators
+
+---
+# Operators are functions
+
+C++ operators, for the non-fundamental types, are just functions with odd
+names, e.g.:
+```C++
+std::string operator+(const std::string& a, const std::string& b);
+```
+
+You can then use the natural syntax when manipulating these in other
+code:
+
+```C++
+std::string user_name = "alice";
+auto data_file = user_name + ".csv";
+```
+
+???
+
+Here, 'data_file' is given the type 'std::string' by the compiler using
+"type inference"
+
+In general we'd recommend using auto quite a lot "Almost always auto"
+
+Why?
+
+Can't have an uninitialized variable
+
+
+Add types - on RHS as constructors - when you need to ensure the type
+of something (is known to the reader).
+
+---
+# Operator overloading
 
 Complex numbers have the usual arithmetic operations: `\(+-\times\div\)`
 
@@ -515,7 +551,7 @@ internally.
 If anyone asks, references and `const` coming up
 
 ---
-# More on operator overloading
+# Operator overloading
 
 Complex numbers have the usual arithmetic operations
 (`\(+-\times\div\)`) and comparisons.
