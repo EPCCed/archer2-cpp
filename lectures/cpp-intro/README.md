@@ -12,7 +12,7 @@ template: titleslide
 ---
 # Assumptions
 
-- You are a decent programmer in another language
+- You have some experience in another language
 
 - You know how to use the shell
 
@@ -436,6 +436,37 @@ is super complicated
 
 ---
 template: titleslide
+# Conditionals
+
+---
+# If 
+
+- If example
+
+- possible conditions
+
+---
+# Combining conditions
+
+---
+# if and else
+
+- If and else example
+
+- else if example
+
+---
+# Short hand if
+
+- example of a short hand if
+
+---
+# Switch
+
+- example of a switch
+
+---
+template: titleslide
 # Functions
 
 ---
@@ -482,7 +513,7 @@ int sum(int a, int b) {
 }
 ```
 
-Since C++11, we can alse use a _trailing return type_ (aka "east end functions"):
+Since C++11, we can also use a _trailing return type_ (aka "east end functions"):
 ```C++
 auto sum(int a, int b) -> int {
   return a + b;
@@ -611,7 +642,7 @@ int main(int argc, char* argv[]) {
   std::cin >> name;
 
   // Have the program greet the user by name
-  say_hello(name);
+  say_hello();
 
   return 0;
 }
@@ -622,6 +653,10 @@ int main(int argc, char* argv[]) {
 Change `say_hello` to accept the name it reads from the
 terminal, create a new message saying "Hello, $NAME!" and
 print it to standard output.
+
+If you complete this try adding conditional responses based on the input name.
+
+Finally can you write a simple question and answer workflow where the program uses the answer from the user to ask subsequent questions?
 
 ???
 
