@@ -441,30 +441,102 @@ template: titleslide
 ---
 # If 
 
-- If example
+Use if to specify weather a block of code should be executed based on a condition.
 
-- possible conditions
+```
+if (condition) {
+  //block of code
+}
+```
+
+Conditions include:
+
+- Equal to `a == b`
+- Not equal to `a != b`
+- Less than `a < b`
+- Greater than `a > b`
 
 ---
 # Combining conditions
 
+You can combine conditions together to make more complex logic:
+
+- and
+
+```
+if (condition A && condition B) {
+  //block of code
+}
+```
+
+- or
+
+```
+if (condition A || condition B) {
+  //block of code
+}
+```
+
 ---
 # if and else
 
-- If and else example
+The `else` statement allows you to specify what happens if the condition is false:
 
-- else if example
+```
+if (condition) {
+  // block of code executes when condition true
+}
+else {
+  // block of code executes when condition false
+}
+```
 
 ---
-# Short hand if
+# If we want more than else
 
-- example of a short hand if
+More complex control flow can be generated with else if:
+
+```
+if (condition 1) {
+  // block of code executes when condition 1 is true
+}
+else if (condition 2) {
+  // block of code executes when condition 2 is true
+}
+else if (condition 3) {
+  // block of code executes when condition 3 is true
+}
+else {
+  // block of code executes when conditions are false
+}
+```
 
 ---
-# Switch
+# Shorthand if
 
-- example of a switch
+In some cases you might want to be more compact
 
+```
+variable = (condition) ? expression if True : expression if False;
+```
+
+---
+# Switch statement
+
+```
+switch(expression)
+  case a:
+    // code block if expression = value a
+    break;
+  case b:
+    // code block if expression = value b
+    break;
+    .
+    .
+    .
+  default:
+    // default code block if no cases matched
+```    
 ---
 template: titleslide
 # Functions
