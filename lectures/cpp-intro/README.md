@@ -726,10 +726,6 @@ Change `say_hello` to accept the name it reads from the
 terminal, create a new message saying "Hello, $NAME!" and
 print it to standard output.
 
-If you complete this try adding conditional responses based on the input name.
-
-Finally can you write a simple question and answer workflow where the program uses the answer from the user to ask subsequent questions?
-
 ???
 
 What I'd like you to do is change `say_hello` to accept the name it
@@ -737,3 +733,7 @@ read from the terminal, create a new message saying "Hello, $NAME!"
 and print it to standard output.
 
 I've shown here how to read a string from standard input.
+
+If completing quickly try adding conditional responses based on the input name.
+
+Finally can you write a simple question and answer workflow where the program uses the answer from the user to ask subsequent questions?
