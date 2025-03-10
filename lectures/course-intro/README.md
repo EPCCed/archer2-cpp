@@ -69,6 +69,7 @@ template: titleslide
 
 - 3:05 - 4:00 : Time to work on exercises from the day & ask questions
 
+
 --- 
 # Access to ARCHER2
 
@@ -81,7 +82,4 @@ template: titleslide
 - Machine account:
   - Login to safe
   - Login accounts -> Request a login account
-
----
-
 
