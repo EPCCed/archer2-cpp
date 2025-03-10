@@ -34,6 +34,7 @@ TEST_CASE("Complex numbers can be compared") {
   REQUIRE(one == one);
   REQUIRE(i == i);
   REQUIRE(zero != one);
+  REQUIRE(zero != i);
   REQUIRE(one != i);
 }
 
