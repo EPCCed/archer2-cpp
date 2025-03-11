@@ -1,3 +1,5 @@
+# Class types exercise
+
 In your clone of this repository, find the `2.1-class-types` exercise and list the files
 
 ```
