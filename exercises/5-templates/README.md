@@ -33,4 +33,4 @@ $ ls
 Makefile  complex.cpp  complex.hpp  test.cpp
 ```
 
-`complex.cpp` contains a working version of the complex number class. Change the class declaration and definitions to use type templating.
+`complex.cpp` contains a working version of the complex number class. Change the class declaration and definitions to use type templating. Hint: C++ will not automatically convert from a char array to std::string so you will need to be explicit.
