@@ -20,7 +20,7 @@ Makefile  sum.cpp
 13    // sum("Hello", "World!");
 ```
 3. Uncomment line 13. What happens when you try to compile?
-3. Change the `sum()` function to use type templating. How does this change the output?
+3. Change the `sum()` function to use type templating. How does this change the output? Hint: C++ will not automatically convert from a char array to std::string so you will need to be explicit.
 
 
 ## Part 2
@@ -33,4 +33,4 @@ $ ls
 Makefile  complex.cpp  complex.hpp  test.cpp
 ```
 
-`complex.cpp` contains a working version of the complex number class. Change the class declaration and definitions to use type templating. Hint: C++ will not automatically convert from a char array to std::string so you will need to be explicit.
+`complex.cpp` contains a working version of the complex number class. Change the class declaration and definitions to use type templating.
