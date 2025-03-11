@@ -70,7 +70,7 @@ template: titleslide
 - 3:05 - 4:00 : Time to work on exercises from the day & ask questions
 
 
---- 
+---
 # Access to ARCHER2
 
 - SAFE: https://safe.epcc.ed.ac.uk/
@@ -82,4 +82,9 @@ template: titleslide
 - Machine account:
   - Login to safe
   - Login accounts -> Request a login account
+  - Set user name
+  - Set ssh key
+  - Set multi-factor token
+  - ssh user@login.archer2.ac.uk
+  - Set password (used for recovery only)
 
