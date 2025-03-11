@@ -32,16 +32,6 @@ Complex mk_imaginary_unit() {
 ```
 This is called aggregate initialisation.
 
-Alternatively:
-```C++
-Complex mk_imaginary_unit() {
-  Complex sqrt_m1; // Values are uninitialised
-  sqrt_m1.re = 0;
-  sqrt_m1.im = 1;
-  return sqrt_m1;
-}
-```
-
 ---
 # Constructors
 

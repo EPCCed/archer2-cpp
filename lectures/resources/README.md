@@ -169,8 +169,8 @@ Make sure your print the location of the pointer and x in memory so you convince
 
 Second create an double array y of 4 elements and give each element a value.
 
-Create a pointer to the 0th and 1st members of the array.
+Create two pointers one for each of the 0th and 1st members of the array.
 
-Incrementing the pointer to the 0th element of the array and show the pointer now pointers to the 1st element of the array.
+Incrementing the pointer to the 0th element of the array and show the pointer now points to the 1st element of the array.
 
 Make sure to print the location of the pointer and array elements in memory to convince yourself no data movement has occurred.
