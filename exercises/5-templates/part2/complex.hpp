@@ -2,6 +2,7 @@
 #define CPPEX_COMPLEX_COMPLEX_HPP
 
 // Simple complex number class
+/* Add template typename definition here */
 class Complex {
 public:
   // Default value is zero
@@ -25,6 +26,10 @@ public:
   friend bool operator!=(Complex const& a, Complex const& b);
 
   // Declare binary arithmetic operators
+  /* What if I want to add a Complex<double> to a Complex<int>?
+     What would be returned in this case? What should the return type
+     be to make this flexible?
+  */
   friend Complex operator+(Complex const& a, Complex const& b);
   friend Complex operator-(Complex const& a, Complex const& b);
   friend Complex operator*(Complex const& a, Complex const& b);
