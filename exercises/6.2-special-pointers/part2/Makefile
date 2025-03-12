@@ -1,10 +1,10 @@
 CXXFLAGS = --std=c++17
 
-pointers : special.o
+pointers : shared.o
 	$(CXX) $^ -o $@
 
-run : special
-	./special
+run : shared
+	./shared
 
 clean :
-	rm -rf *.o special
+	rm -rf *.o shared
