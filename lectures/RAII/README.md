@@ -1,8 +1,97 @@
 template: titleslide
 
-# RAII
+# Managing resources
 ## James Richings, EPCC
 ## j.richings@epcc.ed.ac.uk
+
+---
+# Resources
+
+In a program you often need to manage things like:
+
+- memory
+
+- open files
+
+- GPUs
+
+- network sockets
+
+???
+
+Let's talk a bit about memory first
+
+---
+# Memory: overview
+
+.columns[
+.col[
+Modern OSes given each process a flat address space
+
+Each byte can be accessed by its address, which is just a number.
+
+For most purposes this can be considered in two parts:
+- stack
+- heap
+]
+.col[
+.center[
+![:scale_img 50%](mem_layout.jpg)
+]
+]
+]
+
+---
+# Memory: stack
+
+In C++ (and C and many other compiled languages) local variables are
+stored in the **stack**.
+
+As your program runs, the local variables that are defined, get space
+allocated by the compiler relative to the current stack frame.
+
+Each time you call a function, you start a new stack frame by
+incrementing the stack pointer.
+
+Variables are implemented as offsets from this, so allocating a local
+variable has no run-time cost.
+
+When you return from a function, the stack pointer is updated and
+deallocation also has no cost
+
+These allocations are called *static* because they have to be prepared
+at compile time
+
+---
+# Memory: heap
+ 
+The language and OS also make available some memory for dynamic
+allocation: the *heap*
+
+You need to request some memory to store an object and then give it
+back when you are finished.
+
+```C++
+int main()
+{
+   // This memory for 3 integers
+   // is allocated on heap.
+   int *ptr  = new int[3]{1,2,3};
+
+   // To keep things tidy we need to manually call delete
+   delete[] ptr;
+}
+```
+
+
+
+???
+
+Fortran has allocatable arrays and somewhat restricted pointers
+
+C programmers will be familiar with malloc and free, which is also
+present in C++, but should never be used (I can't recall ever having
+done so)
 
 ---
 template: titleslide
@@ -374,19 +463,26 @@ If it does deal with ownership then rule of 5 applies :(
 
 ---
 
-# Exercise
+# my_array Exercise
 
-Time to try this out for yourself:
+Time to try this out for yourself your own class.
 
-- Try writing your own simple my_vector class:
+**Part 1**
 
-  - Make sure you define a constructor and descructor for the my_vector class.
-  - Write a simple test program that uses the my_vector.
-  - Add in the ability to copy the your new my_vector class.
-  - Update you test program so it copies an instance of your new my_vector.
-  - Add the ability to move an instance of your my_vector class.
-  - Update the example program to include a move of the my_vector your have implemented.
-  - Can you add a member function to calculate the magnitude of my_vector?
+- Implement the constructor
+- Implement the destructor
+
+**Part 2**
+
+- Implement the copy constructor
+- Implement the copy assignment operator
+
+**Part 3**
+
+- Implement the move constructor
+- Implement the movement move assignment operator
+
+
 
 N.B. Add print statements to each function call in my_vector so you can see when each of the class members are called.
 
