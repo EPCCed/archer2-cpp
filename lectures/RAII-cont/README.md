@@ -43,6 +43,122 @@ manager as one or more data members.
 
 If it does deal with ownership then rule of 5 applies :(
 
+
+---
+template: titleslide
+
+# Standard library to the rescue!
+
+---
+
+template: titleslide
+
+# But first Pointers...
+
+---
+# Pointers in C++
+
+In C++ you can get a pointer to an object using `&` (the *address of* operator)
+
+You can read or write the value-that-is-pointed-to with `*` (the *dereference* operator)
+ 
+```C++
+int main() {
+  int i = 99;
+  int* i_ptr = &i;
+
+  *i_ptr += 1;
+  std::cout << i << std::endl;
+}
+```
+
+---
+# Pointers vs references
+
+Pointers are a lot like references, but they are not guaranteed to be
+initialised to a valid value!
+
+It is valid to assign an arbitrary value to a pointer, but actually
+using it is **undefined behaviour** - typically a crash but could be
+silent corruption of data.
+
+```C++
+int main() {
+  int* i_ptr = 0xdeadbeef;
+
+  *i_ptr += 1;
+  std::cout << i << std::endl;
+}
+```
+Use pointers with great caution!
+
+---
+# Pointers vs references
+
+Pointers are a lot like references, but they are not guaranteed to be
+initialised to a valid value!
+
+It is valid to assign an arbitrary value to a pointer, but actually
+using it is **undefined behaviour** - typically a crash but could be
+silent corruption of data.
+
+```C++
+int* make_bad_pointer() {
+  int i = 42;
+  return &i;
+}
+```
+
+Returning a pointer to a local variable is a recipe for problems
+
+???
+
+Because once that function returns the lifetime of the target object
+has ended and accessing it is UB
+
+---
+# Pointers to dynamically allocated memory
+
+In C++ you can manually create instances of objects dynamically with
+`new` and try to remember to destroy them with `delete`
+
+But doing so is a recipe for problems!
+
+???
+
+Using new and delete throughout your code is generally going to cause
+you problems, even with extensive use of tools like AddressSanitizer (ASan)
+and Valgrind
+
+But C++ has a design pattern that can tame this - first another feature of the language
+
+---
+# Pointers exercise
+
+Write a new C++ code to test your understanding of pointers.
+
+Start with an int x and give it a value.
+
+Create a pointer to x and show how to dereference the pointer and increment the value of x.
+
+Make sure your print the location of the pointer and x in memory so you convince yourself no data movement has occurred.
+
+Second create an double array y of 4 elements and give each element a value.
+
+Create two pointers one for each of the 0th and 1st members of the array.
+
+Incrementing the pointer to the 0th element of the array and show the pointer now points to the 1st element of the array.
+
+Make sure to print the location of the pointer and array elements in memory to convince yourself no data movement has occurred.
+
+** Exercise **
+
+Code skeleton in exercises 6.1-pointers
+---
+template: titleslide
+
+# Finally Standard library to the rescue!
+
 ---
 
 # Standard library & special pointers to the rescue!
@@ -55,7 +171,7 @@ points to.
 Pointers can be moved but *not* copied - this is achieved by the copy
 constructor and copy assignment operators being `delete`d:
 
-```
+```C++
 class unique_ptr {
   unique_ptr(unique_ptr const &) = delete;
   unique_ptr& operator=(unique_ptr const &) = delete;
@@ -311,10 +427,19 @@ if, like most of us, not there yet
 ---
 # Special pointers Exercise
 
-- Use a shared pointer
-- User a unique pointer
-- Test which is which
-- Do something simple
+These exercises try to get you to test how each of the special pointers work.
+
+** Part 1 **
+
+Try using a unique pointers in a simple example.
+
+Code skeleton in `6.2-special-pointers/part1`
+
+** Part 2 **
+
+Try using shared pointers in a simple example.
+
+Code skeleton in `6.2-special-pointers/part2`
 
 ???
 
