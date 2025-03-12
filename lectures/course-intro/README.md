@@ -40,7 +40,7 @@ template: titleslide
 
 - 11:00 – 12:30 : Templates for generic programming
 
-- 12:00 - 1:30 : Lunch
+- 12:30 - 1:30 : Lunch
 
 - 1:30 - 3:00 : RAII continued
 
