@@ -34,15 +34,15 @@ template: titleslide
 
 - 9:30 - 9:45 : Recap previous day
 
-- 9:45 – 10:45 : Managing resources Continued (RAII)
+- 9:45 – 10:45 : Managing resources & RAII
 
 - 10:45 – 11:00 : Coffee
 
-- 11:00 – 12:00 : Templates for generic programming
+- 11:00 – 12:30 : Templates for generic programming
 
-- 12:00 - 1:00 : Lunch
+- 12:00 - 1:30 : Lunch
 
-- 1:00 - 3:00 : RAII continued
+- 1:30 - 3:00 : RAII continued
 
 - 3:00 - 3:15 : Coffee
 
