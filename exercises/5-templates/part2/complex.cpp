@@ -1,6 +1,9 @@
 #include "complex.hpp"
 #include <cmath>
 
+// Hint: Templates should be defined in the .hpp file
+// Will any of these functions remain here?
+
 Complex::Complex(double real) : re(real) {}
 Complex::Complex(double real, double imag) : re(real), im(imag) {}
 
