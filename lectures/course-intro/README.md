@@ -53,19 +53,19 @@ template: titleslide
 
 - 9:30-9:45: Recap the previous day
 
-- 9:45 - 10:45 : Combining classes
+- 9:45 - 11:00 : Combining classes
 
-- 10:45 - 11:00 : coffee
+- 11:00 - 11:15 : coffee
 
-- 11:00 – 12:00 : Algorithms, lambdas, and traits
+- 11:15 – 12:30 : Algorithms, lambdas, and traits
 
-- 12:00 - 1:00 : Lunch
+- 12:30 - 1:30 : Lunch
 
-- 1:00 – 2:00 : Linear algebra with Eigen
+- 1:30 – 2:15 : Linear algebra with Eigen
 
-- 2:00 - 2:15 : Coffee
+- 2:15 - 2:30 : Coffee
 
-- 2:15 – 3:00 : Threads with C++
+- 2:30 – 3:00 : Threads with C++
 
 - 3:05 - 4:00 : Time to work on exercises from the day & ask questions
 
