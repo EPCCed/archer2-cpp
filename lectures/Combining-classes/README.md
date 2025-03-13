@@ -696,13 +696,13 @@ Take the example complex class we wrote a couple of days ago and ...
   - Now in a third class write a absolute magnitude function and have this class inherit from the previous 
 - **`Try multiple inheritance`**: 
   - Take new copy of your complex class with only data members
-  - Write a magnitude class
-  - Write an real getter class
-  - Write imaginary getter class
-  - Write a class that combines inherits all three to make a complex complex objecgt
-- Polymorphism
-  - Write a base class with a function called weatherforecast that prints a message. "rain"
-  -  Write a second 
+  - Write an real and imaginary getter class
+  - Write a magnitude class that inherits the other two classes to make a complete complex class.
+- **`Polymorphism`**
+  - Compile part 4 with `g++ main.cpp -o main`
+  - Run `main`
+  - Look at the code and can you explain how the inheritance works?
+  - Can you correct the forcast?
 
 
 ---
