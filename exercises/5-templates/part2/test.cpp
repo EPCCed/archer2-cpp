@@ -97,6 +97,11 @@ TEST_CASE("Complex numbers can be multiplied") {
   REQUIRE(z == -i);
 }
 
+bool AreDoubleSame(double dFirstVal, double dSecondVal)
+{
+    return std::fabs(dFirstVal - dSecondVal) < 2 * std::numeric_limits<double>::epsilon();
+}
+
 TEST_CASE("Complex numbers can be templated") {
   const Complex<int> z1{static_cast<int>(3.4), static_cast<int>(5.1)};
   const Complex<double> z2{3.4, 5.1};
@@ -104,4 +109,8 @@ TEST_CASE("Complex numbers can be templated") {
   REQUIRE(z1.real() == 3);
   REQUIRE(z1.imag() == 5);
   REQUIRE(z1.norm2() == 34);
+  REQUIRE(z1 + z2 == Complex<double>{6.4, 10.1});
+  REQUIRE(std::is_same<decltype(z1 + z2), Complex<double>>::value);
+  REQUIRE(std::is_same<decltype(z1 - z2), Complex<double>>::value);
+  REQUIRE(std::is_same<decltype(z1 * z2), Complex<double>>::value);
 }

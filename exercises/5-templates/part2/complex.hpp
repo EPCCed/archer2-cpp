@@ -1,5 +1,6 @@
 #ifndef CPPEX_COMPLEX_COMPLEX_HPP
 #define CPPEX_COMPLEX_COMPLEX_HPP
+#include <type_traits>
 
 // Simple complex number class
 template <typename T>
@@ -28,14 +29,12 @@ public:
   friend bool operator!=(Complex<U> const& a, Complex<V> const& b);
 
   // Declare binary arithmetic operators
-  template <typename U>
-  friend Complex<U> operator+(Complex<U> const& a, Complex<U> const& b);
-  template <typename U>
-  friend Complex<U> operator-(Complex<U> const& a, Complex<U> const& b);
-  template <typename U>
-  friend Complex<U> operator*(Complex<U> const& a, Complex<U> const& b);
-  template <typename U>
-  friend Complex<U> operator/(Complex<U> const& a, Complex<U> const& b);
+  template <typename U, typename V>
+  friend Complex<std::common_type_t<U, V>> operator+(Complex<U> const& a, Complex<V> const& b);
+  template <typename U, typename V>
+  friend Complex<std::common_type_t<U, V>> operator-(Complex<U> const& a, Complex<V> const& b);
+  template <typename U, typename V>
+  friend Complex<std::common_type_t<U, V>> operator*(Complex<U> const& a, Complex<V> const& b);
 
   // Unary negation
   template <typename U>
@@ -87,19 +86,19 @@ bool operator!=(Complex<U> const& a, Complex<V> const& b) {
   return !(a == b);
 }
 
-template <typename T>
-Complex<T> operator+(Complex<T> const& a, Complex<T> const& b) {
-  return Complex<T>{a.re + b.re, a.im + b.im};
+template <typename T, typename U>
+Complex<std::common_type_t<T, U>> operator+(Complex<T> const& a, Complex<U> const& b) {
+  return Complex<std::common_type_t<T, U>>{a.re + b.re, a.im + b.im};
 }
 
-template <typename T>
-Complex<T> operator-(Complex<T> const& a, Complex<T> const& b) {
-  return Complex<T>{a.re - b.re, a.im - b.im};
+template <typename T, typename U>
+Complex<std::common_type_t<T, U>> operator-(Complex<T> const& a, Complex<U> const& b) {
+  return Complex<std::common_type_t<T, U>>{a.re - b.re, a.im - b.im};
 }
 
-template <typename T>
-Complex<T> operator*(Complex<T> const& a, Complex<T> const& b) {
-  return Complex<T>{a.re * b.re - a.im * b.im, a.re * b.im + a.im * b.re};
+template <typename T, typename U>
+Complex<std::common_type_t<T, U>> operator*(Complex<T> const& a, Complex<U> const& b) {
+  return Complex<std::common_type_t<T, U>>{a.re * b.re - a.im * b.im, a.re * b.im + a.im * b.re};
 }
 
 template <typename T>
