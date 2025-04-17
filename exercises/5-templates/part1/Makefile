@@ -1,4 +1,4 @@
-CXXFLAGS = --std=c++14 -I../../include
+CXXFLAGS = --std=c++17 -I../../include
 
 sum : sum.o
 	$(CXX) $^ -o $@
