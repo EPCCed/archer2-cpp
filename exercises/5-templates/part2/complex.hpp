@@ -25,16 +25,20 @@ public:
   friend bool operator==(Complex const& a, Complex const& b);
   friend bool operator!=(Complex const& a, Complex const& b);
 
-  // Declare binary arithmetic operators
-  /* What if I want to add a Complex<double> to a Complex<int>?
-     What would be returned in this case? What should the return type
-     be to make this flexible?
-  */
+  // Declare binary arithmetic operators - Assume both complex numbers have the same template type.
   friend Complex operator+(Complex const& a, Complex const& b);
   friend Complex operator-(Complex const& a, Complex const& b);
   friend Complex operator*(Complex const& a, Complex const& b);
-  friend Complex operator/(Complex const& a, Complex const& b);
-  // Question: how would you declare multiplication and division by a real number?
+
+  /* 
+  Extension: What if I want to add a Complex<double> to a Complex<int>?
+    What would be returned in this case? What should the return type
+    be to make this flexible?
+    Hint: Look up std::common_type from the type_traits header.
+
+  If you complete this extension, uncomment the final test case in
+  test.cpp to test your implementation.
+  */
 
   // Unary negation
   friend Complex operator-(Complex const& a);
