@@ -1,0 +1,17 @@
+*.o
+catch.hpp
+
+# Ignore executables created by the exercises
+exercises/2.1-class-types/test
+exercises/2.2-complex/test
+exercises/3-containers/part1/test
+exercises/3-containers/part2/test
+exercises/5-templates/part1/sum
+exercises/5-templates/part2/test
+exercises/8-algorithm/ex
+exercises/9-eigen/explicit
+exercises/9-eigen/implicit
+exercises/9-eigen/sparse
+exercises/9-eigen/*.txt
+exercises/9-eigen/*.gif
+exercises/10-threads/area
