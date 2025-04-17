@@ -1,6 +1,7 @@
 # Lectures
 
-* [Course introduction](0-course-intro)
+* [Course introduction (2 days)](0-course-intro-2-days)
+* [Course introduction (3 days)](0-course-intro-3-days)
 * [A brief introduction to C++](1-cpp-intro)
 * [Class types](2-classes)
 * [Loops, containers, and iterators](3-loops-containers)
