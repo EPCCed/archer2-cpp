@@ -1,6 +1,6 @@
 CXXFLAGS = --std=c++17 -I../../include
 
-test : test.o
+test : vector_ex.o map_ex.o test.o
 	$(CXX) $^ -o $@
 
 run : test

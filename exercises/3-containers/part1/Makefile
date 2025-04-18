@@ -1,10 +1,10 @@
 CXXFLAGS = --std=c++17 -I../../include
 
-sum : sum.o
+test : vector_ex.o test.o
 	$(CXX) $^ -o $@
 
-run : sum
-	./sum
+run : test
+	./test
 
 clean :
-	rm -rf *.o sum
+	rm -rf *.o test
