@@ -105,3 +105,16 @@ TEST_CASE("Complex numbers can be templated") {
   REQUIRE(z1.imag() == 5);
   REQUIRE(z1.norm2() == 34);
 }
+
+/*
+Uncomment the code below to test the binary operators extension exercise
+
+TEST_CASE("Complex number binary operators can use two different template types") {
+  const Complex<int> z1{3, 5};
+  const Complex<double> z2{3.4, 5.1};
+  REQUIRE(z1 + z2 == Complex<double>{6.4, 10.1});
+  REQUIRE(std::is_same<decltype(z1 + z2), Complex<double>>::value);
+  REQUIRE(std::is_same<decltype(z1 - z2), Complex<double>>::value);
+  REQUIRE(std::is_same<decltype(z1 * z2), Complex<double>>::value);
+}
+*/

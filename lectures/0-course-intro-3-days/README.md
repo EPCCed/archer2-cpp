@@ -77,14 +77,20 @@ template: titleslide
 
 - SAFE Docs: https://epcced.github.io/safe-docs/
 
+- ARCHER2 Docs: https://docs.archer2.ac.uk/user-guide/connecting/
+
 - Project: ta198
 
-- Machine account:
-  - Login to safe
-  - Login accounts -> Request a login account
-  - Set user name
-  - Set ssh key
-  - Set multi-factor token
-  - ssh user@login.archer2.ac.uk
-  - Set password (used for recovery only)
+----
+
+Complete setup of machine account:
+- Login to SAFE
+- Set multi-factor token:
+  - `Login accounts -> user@archer2 -> Set MFA-Token`
+- Connect via terminal:
+  - `ssh user@login.archer2.ac.uk`
+  - `ssh -i [path-to-ssh-key] user@login.archer2.ac.uk`
+- Get LDAP password from SAFE (first login only):
+  - `Login accounts -> user@archer2 -> View Login Account Password`
+- Set password (used for recovery only)
 

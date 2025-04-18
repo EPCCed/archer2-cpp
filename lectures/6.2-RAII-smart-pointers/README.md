@@ -1,8 +1,8 @@
 template: titleslide
 
-# RAII continued
-## James Richings, EPCC
-## j.richings@epcc.ed.ac.uk
+# RAII - Smart Pointers
+## Nathan Mannall, EPCC
+## n.mannall@epcc.ed.ac.uk
 
 
 ---
