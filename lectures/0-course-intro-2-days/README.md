@@ -1,8 +1,8 @@
 template: titleslide
 
 # Course Introduction
-## James Richings, EPCC
-## j.richings@epcc.ed.ac.uk
+## Nathan Mannall, EPCC
+## n.mannall@epcc.ed.ac.uk
 
 ---
 template: titleslide
@@ -23,20 +23,18 @@ template: titleslide
 
 - 1:30 – 2:30 : loops, containers, and iterators
 
-- 2:30 - 3:00 : Templates & traits for generic programming
+- 2:30 - 3:00 : Managing resources
 
 - 3:00 – 3:15 : Coffee
 
-- 3:15 - 4:00 : Templates continued
+- 3:15 - 4:00 : RAII
 
 ---
 # Day 2
 
 - 9:30 - 9:45 : Recap previous day
 
-- 9:45 - 10:15 : Managing resources (Pointers)
-
-- 10:15 - 10:45 : RAII
+- 9:45 - 10:45 : Templates & traits for generic programming
 
 - 10:45 – 11:00 : Coffee
 
@@ -50,15 +48,9 @@ template: titleslide
 
 - 3:00 - 3:15 : Coffee
 
-- 3:15 - 3:45 : Time to work on exercises from the course & ask questions. 
+- 3:15 - 3:45 : Time to work on exercises from the course & ask questions.
 
-- 3:45 - 4:00 : Wrap-up (and feedback form)
-
----
-# Not covering
-
-- Threads with C++
-- Combining classes
+- 3:45 - 4:00 : Wrap-up
 
 ---
 # Access to ARCHER2
