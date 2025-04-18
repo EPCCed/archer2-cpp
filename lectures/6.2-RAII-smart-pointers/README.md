@@ -1,6 +1,6 @@
 template: titleslide
 
-# RAII continued
+# RAII - Smart Pointers
 ## Nathan Mannall, EPCC
 ## n.mannall@epcc.ed.ac.uk
 

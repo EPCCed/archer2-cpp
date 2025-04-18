@@ -71,6 +71,20 @@ allocation: the *heap*
 You need to request some memory to store an object and then give it
 back when you are finished
 
+In C++ this uses the `new` and `delete` keywords
+
+```C++
+int main()
+{
+  // This memory for 3 integers
+  // is allocated on heap.
+  int *ptr  = new int[3]{1,2,3};
+
+  // To keep things tidy we need to manually call delete
+  delete[] ptr;
+}
+```
+
 ???
 
 Fortran has allocatable arrays and somewhat restricted pointers
@@ -145,6 +159,22 @@ has ended and accessing it is UB
 
 In C++ you can manually create instances of objects dynamically with
 `new` and try to remember to destroy them with `delete`
+
+```C++
+int main()
+{
+  // Memory for an integer is allocated on heap.
+  int *ptr  = new int{};
+  *ptr = 7;  // Put a value in that memory location
+
+  // Initialize a dynamic array
+  int* array_ptr = new int[5]{ 9, 7, 5, 3, 1 }; 
+
+  // To keep things tidy we need to manually call delete
+  delete ptr;
+  delete[] array_ptr;
+}
+```
 
 But doing so is a recipe for problems!
 
