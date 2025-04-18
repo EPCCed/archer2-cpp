@@ -1,7 +1,7 @@
 template: titleslide
 # Classes
-## Nathan Mannall, EPCC
-## n.mannall@epcc.ed.ac.uk
+## Luca Parisi, EPCC
+## l.parisi@epcc.ed.ac.uk
 
 
 ---

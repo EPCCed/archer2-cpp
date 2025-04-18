@@ -1,8 +1,8 @@
 template: titleslide
 
 # Resource management
-## Nathan Mannall, EPCC
-## n.mannall@epcc.ed.ac.uk
+## Luca Parisi, EPCC
+## l.parisi@epcc.ed.ac.uk
 
 ---
 # Resources

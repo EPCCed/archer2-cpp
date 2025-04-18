@@ -1,8 +1,8 @@
 template: titleslide
 
 # Managing resources
-## James Richings, EPCC
-## j.richings@epcc.ed.ac.uk
+## Nathan Mannall, EPCC
+## n.mannall@epcc.ed.ac.uk
 
 ---
 # Resources

@@ -1,8 +1,8 @@
 template: titleslide
 
 # Algorithms, lambdas, traits
-## Nathan Mannall
-## n.mannall@epcc.ed.ac.uk
+## Luca Parisi, EPCC
+## l.parisi@epcc.ed.ac.uk
 
 ---
 
