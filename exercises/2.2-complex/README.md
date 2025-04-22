@@ -11,7 +11,12 @@ The files `complex.hpp` and `complex.cpp` contain a partially working comple
 You can compile and run with:
 
 ```
-$ make && ./testc++ --std=c++14 -I../include   -c -o complex.o complex.cppc++ --std=c++14 -I../include   -c -o test.o test.cppc++ complex.o test.o -o test===============================================================================All tests passed (34 assertions in 6 test cases)
+$ make && ./test
+g++ --std=c++14 -I../include   -c -o complex.o complex.cpp
+g++ --std=c++14 -I../include   -c -o test.o test.cpp
+g++ complex.o test.o -o test
+===============================================================================
+All tests passed (34 assertions in 6 test cases)
 ```
 
 But to get to this point you need to complete the code and fix a few bugs!

@@ -869,9 +869,9 @@ complex number class and `test.cpp` holds some basic unit tests.
 You can compile and run with:
 ```
 $ make && ./test
-c++ --std=c++14 -I../include   -c -o complex.o complex.cpp
-c++ --std=c++14 -I../include   -c -o test.o test.cpp
-c++ complex.o test.o -o test
+g++ --std=c++14 -I../include   -c -o complex.o complex.cpp
+g++ --std=c++14 -I../include   -c -o test.o test.cpp
+g++ complex.o test.o -o test
 ===============================================================================
 All tests passed (34 assertions in 6 test cases)
 ```
