@@ -19,3 +19,7 @@ exercises/9-eigen/sparse
 exercises/9-eigen/*.txt
 exercises/9-eigen/*.gif
 exercises/10-threads/area
+
+lectures/1-cpp-intro/auto/auto
+lectures/1-cpp-intro/hello/hello
+lectures/1-cpp-intro/sum/sum
