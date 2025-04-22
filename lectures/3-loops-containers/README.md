@@ -486,4 +486,4 @@ Implement, in a new header/implementation pair of files (`map_ex.hpp`/`.cpp`),
 a function (`AddWord`) that adds a string to a `std::map` as the key, the value
 being the length of the string. Note: Copy your completed `vector_ex.cpp`/`.hpp` files from part 1.
 
-You will want to find the documentatation for `map` on https://en.cppreference.com/
+You can find documentatation for `map` here: https://en.cppreference.com/
