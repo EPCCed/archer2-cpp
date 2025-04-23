@@ -852,6 +852,23 @@ Refer back to the last slide codes and ask
   would have stayed constant)
 
 ---
+template: titleslide
+# Exercise
+
+---
+# Note: Complex numbers
+
+- A complex number is a number that can be expressed in the form `a+bi` where:
+  - `a` is the real part
+  - `b` is the imaginary part
+  - `i` is the imaginary unit defined as the square root of `-1`
+- We can define basic operations for two complex numbers `a=x+yi` and `b=u+vi` as:
+  - `a + b = (x + yi) + (u + vi) = (x + u) + (y + v)i`
+  - `a - b = (x + yi) - (u + vi) = (x - u) + (y - v)i`
+
+.center[![:scale_img 40%](complex_numbers.svg)]
+
+---
 # Exercise
 
 In your clone of this repository, find the `2.2-complex` exercise and list
@@ -869,9 +886,9 @@ complex number class and `test.cpp` holds some basic unit tests.
 You can compile and run with:
 ```
 $ make && ./test
-c++ --std=c++14 -I../include   -c -o complex.o complex.cpp
-c++ --std=c++14 -I../include   -c -o test.o test.cpp
-c++ complex.o test.o -o test
+g++ --std=c++14 -I../include   -c -o complex.o complex.cpp
+g++ --std=c++14 -I../include   -c -o test.o test.cpp
+g++ complex.o test.o -o test
 ===============================================================================
 All tests passed (34 assertions in 6 test cases)
 ```
