@@ -1,7 +1,7 @@
 template: titleslide
 
 # Course Introduction
-## James Riochings, EPCC
+## James Richings, EPCC
 ## j.richings@epcc.ed.ac.uk
 
 ---
