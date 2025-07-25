@@ -1,8 +1,8 @@
 template: titleslide
 
 # A brief introduction to C++
-## Nathan Mannall, EPCC
-## n.mannall@epcc.ed.ac.uk
+## James Richings, EPCC
+## j.richings@epcc.ed.ac.uk
 
 ---
 

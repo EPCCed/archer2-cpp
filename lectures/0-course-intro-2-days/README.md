@@ -1,8 +1,8 @@
 template: titleslide
 
 # Course Introduction
-## Nathan Mannall, EPCC
-## n.mannall@epcc.ed.ac.uk
+## James Richings, EPCC
+## j.richings@epcc.ed.ac.uk
 
 ---
 template: titleslide
@@ -61,7 +61,7 @@ template: titleslide
 
 - ARCHER2 Docs: https://docs.archer2.ac.uk/user-guide/connecting/
 
-- Project: ta199
+- Project: ta205
 
 ----
 
