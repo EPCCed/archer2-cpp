@@ -1,9 +1,9 @@
 # Complex class exercise
 
-In your clone of this repository, find the `complex` exercise and list the files
+In your clone of this repository, find the `2.2-complex` exercise and list the files
 
 ```
-$ cd archer2-cpp/exercises/complex$ ls Makefile    complex.cpp    complex.hpp    test.cpp
+$ cd archer2-cpp/exercises/2.2-complex$ ls Makefile    complex.cpp    complex.hpp    test.cpp
 ```
 
 The files `complex.hpp` and `complex.cpp` contain a partially working complex number class and `test.cpp` holds some basic unit tests.
