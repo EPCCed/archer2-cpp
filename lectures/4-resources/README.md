@@ -189,18 +189,20 @@ But C++ has a design pattern that can tame this - first another feature of the l
 ---
 # Pointers exercise
 
-Write a new C++ code to test your understanding of pointers.
+In your clone of this repository, find the `4-pointers` exercise and list the files
 
-Start with an int x and give it a value.
+```bash
+$ cd archer2-cpp/exercises/4-pointers
+$ ls
+Makefile    pointers.cpp
+```
 
-Create a pointer to x and show how to dereference the pointer and increment the value of x.
+Follow the instructions in `pointers.cpp` to test your understanding of pointers.
 
-Make sure your print the location of the pointer and x in memory so you convince yourself no data movement has occurred.
+After each step, you should print variables as directed and check the results are what you expect.
 
-Second create an double array y of 4 elements and give each element a value.
+**Reminder:**
 
-Create two pointers one for each of the 0th and 1st members of the array.
+- You can get a pointer to an object using `&` (the *address of* operator)
 
-Incrementing the pointer to the 0th element of the array and show the pointer now points to the 1st element of the array.
-
-Make sure to print the location of the pointer and array elements in memory to convince yourself no data movement has occurred.
+- You can read or write the value-that-is-pointed-to with `*` (the *dereference* operator)
