@@ -7,7 +7,7 @@ See each subdirectory for further instructions
 * [2.1 Class types](2.1-class-types/)
 * [2.2 Complex numbers](2.2-complex/)
 * [3 Containers](3-containers/)
-* [4 My array](4-my-array/)
+* [4 Pointers](4-pointers/)
 * [5 Templates](5-templates/)
 * [6.1 Pointers](6.1-pointers/)
 * [6.2 Special pointers](6.2-special-pointers/)
