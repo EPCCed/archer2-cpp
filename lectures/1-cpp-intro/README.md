@@ -1,8 +1,8 @@
 template: titleslide
 
 # A brief introduction to C++
-## Nathan Mannall, EPCC
-## n.mannall@epcc.ed.ac.uk
+## James Richings, EPCC
+## j.richings@epcc.ed.ac.uk
 
 ---
 
@@ -61,6 +61,19 @@ styles that people have developed over the decades.
 Please ask questions any time!
 
 ---
+# A bit of history
+
+- C++ was originally designed as an extension of C
+  - Well written C tends to be legal C++ but C is not a subset of C++
+  - There are programs that are valid C but not valid C++
+  - However, C++ supports every programming technique supported by C
+
+
+- Released in 1985, but first standardised in 1998 with C++98
+
+- New features added to the standard over time
+
+---
 # The misunderstood monster
 
 .center[![:scale_img 30%](frank_mon.jpg)]
@@ -86,20 +99,19 @@ https://commons.wikimedia.org/w/index.php?curid=3558176
 - "Expert friendly"
 
 ---
-# Octopus vs Swiss Army knife
+# The misunderstood monster
 
-> "C++ is an octopus made by nailing extra legs onto a dog" - Steve Taylor
+- However!
 
-.center[![:scale_img 40%](octodog.jpg) ![:scale_img 40%](sak.jpg)]
+- We can pick and choose the parts of the standard we want to use
 
-But you can cut off some extra legs to get the right dog for your
-program!
+- Not expected to know "all of C++"
+
+- Pick a subset, write some code, and gradually learn more of the language, its libraries, and its tools
 
 ???
 
-Why is it called C++20?
 
-Because that's how many legs they had to nail on to "fix" the octopus.
 
 ---
 # The philosophy of C++ (community)
@@ -119,16 +131,18 @@ Because that's how many legs they had to nail on to "fix" the octopus.
 ---
 # C++ is alive!
 
-C++ is a work in progress.
+- C++ is a work in progress.
 
-Every three years there is a new update to the International Standard
+- Every three years there is a new update to the International Standard (since C++11)
 
-C++20 is only fully supported by MSVC (although GCC is nearly there). Major
+- C++20 is only fully supported by MSVC (although GCC is nearly there). Major
 new features are ranges, coroutines, concepts, and modules
 
-Latest one, C++23 has been released. Major features include
+- Latest one, C++23 has been released. Major features include
 networking, string formatting, executors, and consolidation of new
 C++20 features
+
+- Good summary of compiler support here: https://en.cppreference.com/w/cpp/compiler_support
 
 ---
 # References

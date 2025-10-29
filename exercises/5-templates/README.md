@@ -1,4 +1,4 @@
-# Containers exercise
+# Templates exercise
 
 In your clone of this repository, find the `5-templates` exercise. It contains two sub-directories `part1` and `part2`.
 
@@ -20,7 +20,8 @@ Makefile  sum.cpp
 13    // sum("Hello", "World!");
 ```
 3. Uncomment line 13. What happens when you try to compile?
-4. Change the `sum()` function to use type templating. How does this change the output? Hint: C++ will not automatically convert from a char array to `std::string` so you will need to be explicit.
+3. Change the `sum()` function to use type templating. How does this change the output? Hint: C++ will not automatically convert from a char array to std::string so you will need to be explicit.
+
 
 ## Part 2
 

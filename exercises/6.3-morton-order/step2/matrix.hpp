@@ -87,20 +87,19 @@ namespace morton {
       return _data.get();
     }
 
+    // TODO: implement functions to get iterators to first and
+    //        just-past-the-last elements in the matrix
     // Mutable iterators
     iterator begin() {
-      return iterator(data(), data());
     }
     iterator end() {
-      return iterator(data(), data() + size());
     }
 
+    // TODO: as above, but const
     // Const iterators
     const_iterator begin() const {
-      return const_iterator(data(), data());
     }
     const_iterator end() const {
-      return const_iterator(data(), data() + size());
     }
 
   private:
@@ -128,27 +127,25 @@ namespace morton {
     public std::iterator<std::bidirectional_iterator_tag,
 			 T, int64_t, T*, T&> {
   public:
+    // TODO
     // Default constructor
-    matrix_iterator() : _start(nullptr), _ptr(nullptr) {
-    }
+    matrix_iterator();
 
     // Note: must provide copy c'tor, copy assign
-    // Defaults are fine
+    // TODO: Decide if the default copy/move/destruct behaviour is
+    //       going to be OK.
     
+    // TODO
     // Get the x/y coordinates of the current element
     uint32_t x() const {
-      auto z = _ptr - _start;
-      return pack(z);
     }
     uint32_t y() const {
-      auto z = _ptr - _start;
-      return pack(z >> 1);
     }
     
     // Comparison operators. Note these are inline non-member friend
     // functions.
     friend bool operator==(const matrix_iterator& a, const matrix_iterator& b) {
-      return a._ptr == b._ptr;
+      // TODO
     }
     // Note this can be done in terms of the above
     friend bool operator!=(const matrix_iterator& a, const matrix_iterator& b) {
@@ -157,33 +154,30 @@ namespace morton {
 
     // Dereference operator
     T& operator*() {
-      return *_ptr;
+      // TODO
     }
 
     // Preincrement operator
     matrix_iterator& operator++() {
-      ++_ptr;
-      return *this;
+      // TODO
     }
+    // TODO
     // Predecrement operator
     matrix_iterator& operator--() {
-      --_ptr;
-      return *this;
+      // TODO
     }      
     
   private:
-    matrix_iterator(T* start, T* current) : _start(start), _ptr(current) {
-    }
+    // TODO: declare and define appropriate constructor(s) to create
+    //       iterators pointing into a matrix's data.
+    // matrix_iterator(...);
 
     // Other constructors should probably not be publicly visible, so
     // we need to allow matrix<T> access.
     friend matrix<typename std::remove_const<T>::type>;
 
+    // TODO: Define data members as needed
 
-    // We need the pointer to the first element to work out where we
-    // are in the matrix.
-    T* _start;
-    T* _ptr;
   };
 
 }

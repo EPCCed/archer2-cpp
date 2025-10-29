@@ -1,10 +1,6 @@
 #include <cstdio>
 #include <complex>
 #include <chrono>
-#include <vector>
-#include <thread>
-#include <atomic>
-#include <mutex>
 
 using complex = std::complex<double>;
 
@@ -20,66 +16,27 @@ bool in_mandelbrot(const complex& c) {
   return true;
 }
 
-void area(
-  int start,
-  int stop,
-  int npoints,
-  double scale_real,
-  double scale_imag,
-  int& num_inside,
-  std::mutex& mutex
-) {
-  const auto eps = 1.0e-7;
-  const auto shift = complex{-2.0 + eps, 0.0 + eps};
-
-  for (int i = start; i < stop; ++i) {
-    for (int j = 0; j < npoints; ++j) {
-      const auto c = shift + complex{
-        (scale_real * i) / npoints,
-        (scale_imag * j) / npoints
-      };
-      if (in_mandelbrot(c)) {
-        mutex.lock();
-        num_inside++;
-        mutex.unlock();
-      }
-    }
-  }
-}
-
 int main() {
   const auto NPOINTS = 2000;
+
   const auto scale_real = 2.5;
   const auto scale_imag = 1.125;
-  
+  const auto eps = 1.0e-7;
+  const auto shift = complex{-2.0 + eps, 0.0 + eps};
   using clock = std::chrono::high_resolution_clock;
   auto start = clock::now();
 
-  std::mutex mutex;
+  // Outer loops run over npoints, initialise z=c
+  // Inner loop has the iteration z=z*z+c, and threshold test
   int num_inside = 0;
-
-  int n_threads = 16;
-  std::vector<std::thread> threads;
-
-  int points_per_thread = NPOINTS / n_threads;
-  int i = 0;
-  int j = 0;
-
-  for (int id = 0; id < n_threads; ++id) {
-    i = id * points_per_thread;
-    j = i + points_per_thread;
-    threads.push_back(
-      std::thread(
-        area, i, j, NPOINTS, scale_real, scale_imag, std::ref(num_inside), std::ref(mutex)
-      )
-    );
+  for (int i = 0; i < NPOINTS; ++i) {
+    for (int j = 0; j < NPOINTS; ++j) {
+      const auto c = shift + complex{(scale_real * i) / NPOINTS,
+                                     (scale_imag * j) / NPOINTS};
+      if (in_mandelbrot(c))
+	num_inside++;
+    }
   }
-
-  // Wait for all threads to finish
-  for (auto&& thread : threads) {
-    thread.join();
-  }
-
   auto finish = clock::now();
 
   // Calculate area and error and output the results
