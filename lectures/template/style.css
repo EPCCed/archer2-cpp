@@ -19,3 +19,15 @@ blockquote {
 .smaller {
     font-size: smaller;
 }
+
+.col15 {
+    width: 15%;
+    padding: 0 1%;
+    box-sizing: border-box;
+}
+
+.col75 {
+    width: 75%;
+    padding: 0 1%;
+    box-sizing: border-box;
+}
