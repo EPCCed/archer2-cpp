@@ -1,7 +1,7 @@
 template: titleslide
 # Combining classes
 ## James Richings
-## j.richings@epcc.ed.ac.uk
+### j.richings@epcc.ed.ac.uk
 
 ---
 # Class manipulation so far

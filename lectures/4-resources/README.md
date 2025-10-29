@@ -2,7 +2,7 @@ template: titleslide
 
 # Resource management
 ## Luca Parisi, EPCC
-## l.parisi@epcc.ed.ac.uk
+### l.parisi@epcc.ed.ac.uk
 
 ---
 # Resources

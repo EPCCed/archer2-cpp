@@ -2,7 +2,7 @@ template: titleslide
 
 # A brief introduction to C++
 ## James Richings, EPCC
-## j.richings@epcc.ed.ac.uk
+### j.richings@epcc.ed.ac.uk
 
 ---
 

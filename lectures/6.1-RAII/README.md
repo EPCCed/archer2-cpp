@@ -2,7 +2,7 @@ template: titleslide
 
 # RAII
 ## Nathan Mannall, EPCC
-## n.mannall@epcc.ed.ac.uk
+### n.mannall@epcc.ed.ac.uk
 
 ---
 template: titleslide
