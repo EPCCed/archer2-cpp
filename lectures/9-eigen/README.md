@@ -1,7 +1,7 @@
 template: titleslide
 # Linear Algebra for C++ (using Eigen)
 ## Nathan Mannall, EPCC
-## n.mannall@epcc.ed.ac.uk
+### n.mannall@epcc.ed.ac.uk
 
 ---
 # Source

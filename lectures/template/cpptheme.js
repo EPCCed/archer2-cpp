@@ -1,4 +1,4 @@
-import {epcc, Theme} from "https://EPCCed.github.io/remark_theme/latest.js";
+import {epcc, Theme} from "https://nmannall.github.io/EPCC-remark-theme/latest.js";
 
 var footer = new URL(import.meta.url).searchParams.get("footer");
 

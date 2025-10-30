@@ -2,7 +2,7 @@ template: titleslide
 
 # Algorithms and lambdas
 ## Luca Parisi, EPCC
-## l.parisi@epcc.ed.ac.uk
+### l.parisi@epcc.ed.ac.uk
 
 ---
 

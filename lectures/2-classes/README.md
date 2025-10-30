@@ -1,7 +1,7 @@
 template: titleslide
 # Classes
 ## Luca Parisi, EPCC
-## l.parisi@epcc.ed.ac.uk
+### l.parisi@epcc.ed.ac.uk
 
 
 ---
