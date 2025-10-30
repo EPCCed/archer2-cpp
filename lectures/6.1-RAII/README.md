@@ -376,24 +376,41 @@ If it does deal with ownership then rule of 5 applies :(
 
 # my_array Exercise
 
-Time to try this out for yourself your own class.
+In your clone of this repository, find the `6.1-my-array` exercise and list the files:
 
+```bash
+$ cd archer2-cpp/exercises/6.1-my-array
+$ ls
+Makefile  README.md  my_array.hpp part1.cpp  part2.cpp  part3.cpp  test.cpp
+```
+
+`my_array.hpp` contains a partial implementation of an array class. `part1.cpp`, `part2.cpp`, and `part3.cpp` contain examples using the `my_array` class that you can use to check your implementation and understanding.
+
+.columns[
+.col15[
 **Part 1**
+]
+.col75[
+- Implement the constructor and the destructor
+]
+]
 
-- Implement the constructor
-- Implement the destructor
-
+.columns[
+.col15[
 **Part 2**
-
+]
+.col75[
 - Implement the copy constructor
 - Implement the copy assignment operator
+]
+]
 
+.columns[
+.col15[
 **Part 3**
-
+]
+.col75[
 - Implement the move constructor
-- Implement the movement move assignment operator
-
-
-
-N.B. Add print statements to each function call in my_vector so you can see when each of the class members are called.
-
+- Implement the move assignment operator
+]
+]

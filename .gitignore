@@ -1,5 +1,6 @@
 *.o
 catch.hpp
+core
 
 # Ignore executables created by the exercises
 exercises/2.1-class-types/test
@@ -9,7 +10,10 @@ exercises/3-containers/part2/test
 exercises/4-pointers/pointers
 exercises/5-templates/part1/sum
 exercises/5-templates/part2/test
-exercises/6.1-my-array/part*/my_array
+exercises/6.1-my-array/part1
+exercises/6.1-my-array/part2
+exercises/6.1-my-array/part3
+exercises/6.1-my-array/test
 exercises/6.2-special-pointers/part1/unique
 exercises/6.2-special-pointers/part2/shared
 exercises/8-algorithm/ex
