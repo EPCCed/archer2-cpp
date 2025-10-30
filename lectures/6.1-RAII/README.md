@@ -125,7 +125,7 @@ Also known as constructor acquires, destructor releases (CADRe).
 This odd name is trying to communicate that any resource you have
 should be tied to the lifetime of an object.
 
-So the when the compiler destroys your object it will release the
+So when the compiler destroys your object, it will release the
 resource (e.g. memory).
 
 ???
@@ -180,7 +180,7 @@ Add `auto x_cp = x;` (same as `auto x_cp = my_array{x};`)
 ---
 # Copying
 
-When you value assign an object in C++ this will only be valid if
+When you assign a value to an object in C++, it will only be valid if
 there is a *copy constructor* or *copy assignment operator*
 
 --
@@ -358,7 +358,7 @@ This can be quite a lot of work!
 ---
 # The Rule of Zero
 
-This says that unless your class is solely deals with ownership, then
+This says that unless your class solely deals with ownership, then
 it should define none of the five special functions.
 
 This is really a corollary of the general software engineering 

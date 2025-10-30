@@ -184,7 +184,7 @@ Consider converting to `vector` if you have a build/access pattern.)
 ---
 # Map example
 
-In some structural simulation each parallel processs might own a part of the domain.
+In some structural simulation each parallel process might own a part of the domain.
 
 .center[
 ![:scale_img 60%](domain_decomp.png)
