@@ -90,7 +90,7 @@ int main() {
     << "&y0_ptr: " << &y0_ptr << std::endl
     << " y1_ptr: " << y1_ptr  << std::endl
     << "*y1_ptr: " << *y1_ptr << std::endl
-    << "&y1_ptr: " << &y1_ptr << std::endl << std::endl;
+    << "&y1_ptr: " << &y1_ptr << std::endl;
 
   return 0;
 }
