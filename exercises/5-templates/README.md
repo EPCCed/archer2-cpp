@@ -34,3 +34,5 @@ Makefile  array.hpp  main.cpp
 ```
 
 `array.hpp` contains the beginnings of a `FixedSizeArray` class. Update the class declaration and definitions to use type and non-type template parameters. Additionally, add new class member functions as directed by the TODO comments. `main.cpp` provides instructions for trying out and testing your implementation.
+
+As before, you can compile with `make`.

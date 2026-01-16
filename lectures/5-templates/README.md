@@ -507,8 +507,5 @@ In your clone of this repository, find the `5-templates` exercise. It contains t
 4. Change the `sum()` function to use type templating. How does this change the output?
 
 
-**Part 2**
+**Part 2** - `array.hpp` contains the beginnings of a `FixedSizeArray` class. Add template parameters and complete the tasks in the TODO comments.
 
-`complex.cpp` contains a working version of the complex number class. Change the class declaration and definitions to use type templating.
-
-As before, `test.cpp` holds some basic unit tests and you can compile with `make`.
