@@ -10,8 +10,8 @@
 6.1-my-array/part2
 6.1-my-array/part3
 6.1-my-array/test
-6.2-special-pointers/part1/unique
-6.2-special-pointers/part2/shared
+6.2-smart-pointers/part1/unique
+6.2-smart-pointers/part2/shared
 8-algorithm/ex
 9-eigen/explicit
 9-eigen/implicit
