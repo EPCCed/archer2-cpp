@@ -10,7 +10,7 @@ See each subdirectory for further instructions:
 * [4 Pointers](4-pointers/)
 * [5 Templates](5-templates/)
 * [6.1 My array](6.1-my-array/)
-* [6.2 Special pointers](6.2-special-pointers/)
+* [6.2 Smart pointers](6.2-smart-pointers/)
 * [6.3 Morton-order matrix class template](6.3-morton-order/)
 * [7 Inheritance](7-inheritance/)
 * [8 Using algorithms](8-algorithm/)
