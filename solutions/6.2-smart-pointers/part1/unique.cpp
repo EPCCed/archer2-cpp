@@ -8,7 +8,6 @@ struct A
 
 int main()
 {
-
   // https://en.cppreference.com/w/cpp/memory/unique_ptr
 
   std::cout
