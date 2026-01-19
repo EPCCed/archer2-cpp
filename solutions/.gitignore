@@ -1,6 +1,21 @@
 # Ignore executables created by the solutions
+2.1-class-types/test
+2.2-complex/test
+3-containers/part1/test
+3-containers/part2/test
 4-pointers/pointers
+5-templates/part1/sum
+5-templates/part2/test
 6.1-my-array/part1
 6.1-my-array/part2
 6.1-my-array/part3
 6.1-my-array/test
+6.2-special-pointers/part1/unique
+6.2-special-pointers/part2/shared
+8-algorithm/ex
+9-eigen/explicit
+9-eigen/implicit
+9-eigen/sparse
+9-eigen/*.txt
+9-eigen/*.gif
+10-threads/area

@@ -1,8 +1,8 @@
 # Modern C++ for Computational Scientists
 
-Repository view: <https://github.com/EPCCed/archer2-CPP-2021-07-20>
+[Repository view](https://github.com/EPCCed/archer2-cpp/)
 
-Pages view: <https://EPCCed.github.io/archer2-CPP-2021-07-20/>
+[Pages view](https://epcced.github.io/archer2-cpp/)
 
 Since the 2011 revision to the C++ language and standard library, the
 ways it is now being used are quite different. Used well, these
