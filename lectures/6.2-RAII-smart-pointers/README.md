@@ -161,7 +161,7 @@ template: titleslide
 
 ---
 
-# Standard library & special pointers to the rescue!
+# Standard library & smart pointers to the rescue!
 
 The standard library contains some help:
 
@@ -425,21 +425,21 @@ C++20 has `std::span` but you can use the guideline support library
 if, like most of us, not there yet
 
 ---
-# Special pointers Exercise
+# Smart Pointers Exercise
 
-These exercises try to get you to test how each of the special pointers work.
+These exercises try to get you to test how each of the smart pointers work.
 
 ** Part 1 **
 
 Try using a unique pointers in a simple example.
 
-Code skeleton in `6.2-special-pointers/part1`
+Code skeleton in `6.2-smart-pointers/part1`
 
 ** Part 2 **
 
 Try using shared pointers in a simple example.
 
-Code skeleton in `6.2-special-pointers/part2`
+Code skeleton in `6.2-smart-pointers/part2`
 
 ???
 
@@ -518,7 +518,7 @@ etc wrapped here.
 ---
 # Exercise
 
-We are now going to look at bring together what we have learnt around classes, resources, RAII and special pointers in an exercise.
+We are now going to look at bring together what we have learnt around classes, resources, RAII and smart pointers in an exercise.
 
 The aim of this exercise is to write a new container class that has a simple vector-like interface but a memory efficent data access pattern under the hood.
 
