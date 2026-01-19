@@ -1,10 +1,10 @@
-CXXFLAGS = --std=c++17 -I../../include
+CXXFLAGS = --std=c++20
 
-test : complex.o test.o
+main : main.o
 	$(CXX) $^ -o $@
 
-run : test
-	./test
+run : main
+	./main
 
 clean :
-	rm -rf *.o test
+	rm -rf *.o main

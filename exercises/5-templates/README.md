@@ -30,7 +30,9 @@ List the files in `part2`:
 ```bash
 $ cd archer2-cpp/exercises/5-templates/part2
 $ ls
-Makefile  complex.cpp  complex.hpp  test.cpp
+Makefile  array.hpp  main.cpp
 ```
 
-`complex.cpp` contains a working version of the complex number class. Change the class declaration and definitions to use type templating.
+`array.hpp` contains the beginnings of a `FixedSizeArray` class. Update the class declaration and definitions to use type and non-type template parameters. Additionally, add new class member functions as directed by the TODO comments. `main.cpp` provides instructions for trying out and testing your implementation.
+
+As before, you can compile with `make`.
