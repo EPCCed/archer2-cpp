@@ -1,31 +1,50 @@
 #include <iostream>
 #include <memory>
 
-struct A {
-    void printA() { std::cout << "A struct...." << std::endl; }
+struct A
+{
+  void printA() { std::cout << "A struct...." << std::endl; }
 };
 
-int main() {
+int main()
+{
+  // https://en.cppreference.com/w/cpp/memory/unique_ptr
 
-// https://en.cppreference.com/w/cpp/memory/unique_ptr
+  std::cout
+    << "------------" << std::endl
+    << " Create p1 " << std::endl
+    << "------------" << std::endl;
 
-// TODO: Define a unique pointer of A called p1 
+  // TODO: Define a unique pointer of A called p1
+
+  // TODO: Call printA()
+
+  // TODO: Print address of the containing pointer
 
 
-p1->printA();
+  std::cout << std::endl
+    << "------------" << std::endl
+    << " Create p2 " << std::endl
+    << "------------" << std::endl;
 
-// displays address of the containing pointer
-std::cout << p1.get() << std::endl;
+  // TODO: Make a new unique pointer of A called p2
 
-// TODO: Make a new unique pointer of A p2
-// Set it equal to p1
-// What happens when you compile this?
+  // TODO: Call printA()
 
-// TODO: Use move to move p1 into p2 instead, what happens?
+  // TODO: Print the addresses of p1 and p2
 
-p2->printA();
-std::cout << p1.get() << std::endl;
-std::cout << p2.get() << std::endl;
 
-    return 0;
+  std::cout << std::endl
+    << "-----------" << std::endl
+    << " Update p2 " << std::endl
+    << "-----------" << std::endl;
+
+  // TODO: Set p2 equal to p1
+  // What happens when you compile this?
+
+  // TODO: Use move to move p1 into p2 instead, what happens?
+
+  // TODO: Print the addresses of p1 and p2
+
+  return 0;
 }
