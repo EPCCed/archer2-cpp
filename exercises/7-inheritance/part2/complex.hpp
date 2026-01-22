@@ -21,10 +21,6 @@ public:
   returns the magnitude of the complex number.
   */
 
-  /* Add declaration for an 'add' member function as so: z = i.add(j)
-  I.e. For complex numbers i and j, z is the result of i + j. 
-  */
-
   // Check if two complex numbers are equal
   bool equals(Complex other_complex);
 

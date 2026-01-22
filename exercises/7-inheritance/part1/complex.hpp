@@ -2,7 +2,12 @@
 #define CPPEX_COMPLEX_COMPLEX_HPP
 
 // Simple complex number class
-class Complex {
+class Base {
+
+protected:
+double re= 0.0;
+double im = 0.0;
+
 public:
   /* Add declarations to create:
   - A default constructor
@@ -10,8 +15,23 @@ public:
   - A constructor using real and imaginary components
   */
 
+  Base() = default;
+  Base(double real);
+  Base(double real, double imag); 
+
+};
+
+class Complex : public Base {
+ public:
+  Complex() = default;
+
+  Complex(double real);
+
+  Complex(double real, double imag);
+
   // Access components
   double real();
+  double imag();
   /* Add declaration to access the imaginary component */
 
   // Compute the complex conjugate

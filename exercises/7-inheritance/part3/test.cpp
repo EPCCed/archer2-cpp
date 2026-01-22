@@ -69,28 +69,3 @@ TEST_CASE("Complex numbers can be compared") {
   REQUIRE(!one.equals(i));
 }
 
-void CheckZplusZeq2Z(Complex z) {
-  Complex expected = Complex{2*z.real(), 2*z.imag()};
-  Complex result = z.add(z);
-  REQUIRE(result.equals(expected));
-}
-void CheckZminusZeq0(Complex z) {
-  Complex expected = Complex{};
-  Complex z_minus = Complex{-z.real(), -z.imag()};
-  Complex result = z.add(z_minus);
-  REQUIRE(result.equals(expected));
-}
-
-TEST_CASE("Complex number can be added") {
-  CheckZplusZeq2Z(1);
-  CheckZplusZeq2Z(0);
-  CheckZplusZeq2Z(-1);
-  CheckZplusZeq2Z(Complex{1, 2});
-  CheckZplusZeq2Z(Complex{-42, 1e-3});
-
-  CheckZminusZeq0(1);
-  CheckZminusZeq0(0);
-  CheckZminusZeq0(-1);
-  CheckZminusZeq0(Complex{1, 2});
-  CheckZminusZeq0(Complex{-42, 1e-3});
-}

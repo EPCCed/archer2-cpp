@@ -5,9 +5,6 @@ test : complex.o test.o
 
 test.o : catch.hpp
 
-catch.hpp :
-	wget https://github.com/catchorg/Catch2/releases/download/v2.13.6/catch.hpp
-
 run : test
 	./test
 

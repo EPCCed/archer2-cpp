@@ -20,8 +20,6 @@ Complex Complex::conj() {
 /* Add definition of 'norm' member function. Hint: Look up std::sqrt from the
 cmath header to help calculate the magnitude of a complex number */
 
-/* Add definition of 'add' member function */
-
 bool Complex::equals(Complex other_complex) {
   // Return true if the real and imaginary parts of the complex numbers are
   // equal. False otherwise.

@@ -4,7 +4,7 @@ template: titleslide
 ### j.richings@epcc.ed.ac.uk
 
 ---
-# Class manipulation so far
+## Class manipulation so far
 
 We have discussed:
 
@@ -18,7 +18,7 @@ We have discussed:
 - How to use templates so that classes can be used in a generic way.
 
 ---
-# Whats left?
+## Whats left?
 
 **Can we combine classes to make new classes?**
 
@@ -30,7 +30,7 @@ We have discussed:
 - ... also lots more but we will stop here.
 
 ---
-# Inheritance
+## Inheritance
 
 In C++ it is possible to inherit methods and attributes from another class.
 
@@ -57,7 +57,7 @@ class Child : Parent
 Class `Child` has data members `a` and `b`.
 
 ---
-# Access specifiers: members
+## Access specifiers: members
 
 The previous example everything is public but what is we want to control access 
 
@@ -86,7 +86,7 @@ private:
 ```
 
 ---
-# Access specifiers: members
+## Access specifiers: members
 
 
  - **`public`**:
@@ -112,26 +112,23 @@ b: 2
 ```
 
 ---
-# Access specifiers: Inheritance
+## Access specifiers: Inheritance
 
 We can also specify the level of access we want when we inherit the parent class in the child class.
 
 ```C++
 class Parent
 {
-	Parent() = default;
-	
 	public:
 	    int a1;
 	protected:
-		int a2;
+	    int a2;
 	private:
 	    int a3;
 };
 
 class Child : public Parent
 {
-        Child() = default;
 	private:
         int b;
 };
@@ -140,26 +137,23 @@ class Child : public Parent
   - makes public members of the base class public in the derived class, and the protected members of the base class remain protected in the derived class.
 
 ---
-# Access specifiers: Inheritance
+## Access specifiers: Inheritance
 
 We can also specify the level of access we want when we inherit the parent class in the child class. 
 
 ```C++
 class Parent
 {
-	Parent() = default;
-	
 	public:
 	    int a1;
 	protected:
-		int a2;
+	    int a2;
 	private:
 	    int a3;
 };
 
 class Child : protected Parent
 {
-        Child() = default;
 	private:
         int b;
 };
@@ -168,26 +162,23 @@ class Child : protected Parent
   -  makes the public and protected members of the base class protected in the derived class.
 
 ---
-# Access specifiers: Inheritance
+## Access specifiers: Inheritance
 
  We can also specify the level of access we want when we inherit the parent class in the child class.
 
 ```C++
 class Parent
 {
-	Parent() = default;
-	
 	public:
 	    int a1;
 	protected:
-		int a2;
+	    int a2;
 	private:
 	    int a3;
 };
 
 class Child : private Parent
 {
-        Child() = default;
 	private:
         int b;
 };
@@ -196,7 +187,7 @@ class Child : private Parent
   -  makes the public and protected members of the base class private in the derived class.
 
 ---
-# Multi-level inheritance
+## Multi-level inheritance
 ```C++
 class Grandparent
 {
@@ -231,7 +222,7 @@ private:
 The "Its turtles all the way down" of classes
 We can have classes that inherit from classes that are have already inherited from a base class.
 ---
-# Multi-level inheritance
+## Multi-level inheritance
 
 Multi-level inheritance allows us to inherit in chain.
 
@@ -255,8 +246,7 @@ c: 3
 ```
 
 ---
-# Multiple inheritance
-
+## Multiple inheritance
 ```C++
 class ParentA
 {
@@ -293,7 +283,7 @@ Classes can also be derived from more than one base class.
 Why limit yourself to one class when you can really confuse yourself...
 
 ---
-# Multiple inheritance
+## Multiple inheritance
 
 Why limit yourself to one class when you can really confuse yourself...
 
@@ -314,7 +304,7 @@ c: 6
 ```
 
 ---
-# The diamond problem
+## The diamond problem
 
 .center[![:scale_img 80%](diamond-problem-in-cpp.webp)]
 
@@ -324,7 +314,7 @@ https://www.geeksforgeeks.org/diamond-problem-in-cpp/
 Two classes inherit the same base class inherited by a third class
 
 ---
-# The diamond problem
+## The diamond problem
 
 ```C++
 class Base {
@@ -353,7 +343,7 @@ int main()
 ```
 
 ---
-# The diamond problem  
+## The diamond problem  
 
 Error:
 
@@ -381,7 +371,7 @@ int main()
 ```
 
 ---
-# The diamond problem: virtual
+## The diamond problem: virtual
 
 ```C++
 // Base class
@@ -410,7 +400,7 @@ int main()
 ```
 
 ---
-# Inheritance and constructors
+## Inheritance and constructors
 
 ```C++
 class ParentA
@@ -442,7 +432,7 @@ class Child: public ParentA, public ParentB
 ```
 
 ---
-# Inheritance and constructors
+## Inheritance and constructors
 Simple test:
 
 ```C++
@@ -464,7 +454,7 @@ Constructor of the derived class Child
 N.B. Order of of construction matches order of inheritance
 
 ---
-# Inheritance and destructors
+## Inheritance and destructors
 
 ```C++
 class ParentA
@@ -497,7 +487,7 @@ class Child: public ParentA, public ParentB
 ```
 
 ---
-# Inheritance and destructors
+## Inheritance and destructors
 
 Simple test:
 
@@ -520,7 +510,7 @@ Destructor of the base class ParentA
 N.B. Order of of destruction reverse order of inheritance
 
 ---
-# Polymorphism
+## Polymorphism
 
 ```C++
 class Parent
@@ -556,7 +546,7 @@ private:
 Allows us to use inheritance to do different things in the derived class than specified in the base class with the same methods.
 
 ---
-# Polymorphism
+## Polymorphism
 
 Simple test:
 
@@ -583,7 +573,7 @@ print from parent
 a: 1
 ```
 ---
-# Virtual functions
+## Virtual functions
 
 ```C++
 class base {
@@ -616,7 +606,7 @@ int main()
 ```
 
 ---
-# Virtual functions
+## Virtual functions
 
 Test:
 ```C++
@@ -642,7 +632,7 @@ show base class
 ```
 
 ---
-# Override
+## Override
 
 ```C++
 class Base
@@ -675,17 +665,17 @@ int main()
 ```
 
 ---
-# Types of polymorphism
+## Types of polymorphism
 
 .center[![:scale_img 90%](Polymorphism-in-CPP.png)]
 
 https://www.geeksforgeeks.org/cpp-polymorphism/
 ---
 template:titleslide
-# Exercise
+## Exercise
 
 ---
-# Exercise
+## Exercise
 
 Take the example complex class we wrote a couple of days ago and ...
 
@@ -698,22 +688,17 @@ Take the example complex class we wrote a couple of days ago and ...
   - Take new copy of your complex class with only data members
   - Write an real and imaginary getter class
   - Write a magnitude class that inherits the other two classes to make a complete complex class.
-- **`Polymorphism`**
-  - Compile part 4 with `g++ main.cpp -o main`
-  - Run `main`
-  - Look at the code and can you explain how the inheritance works?
-  - Can you correct the forcast?
 
-
+Hint: The top final class (the one that inherits from elsewhere) needs to be the one called 'Complex' for the tests to work.
 ---
 template: titleslide
-# Great we can combine classes... ...now what?
+## Great we can combine classes... ...now what?
 ---
 template: titleslide
-# Design patterns
+## Design patterns
 
 ---
-# Design pattern
+## Design pattern
 
 - **`Creational`**:
   - "These patterns provide various object creation mechanisms, which increase flexibility and reuse of existing code."
@@ -732,37 +717,3 @@ Books:
 
 - Slightly dusty [ARCHER course material](http://www.archer.ac.uk/training/course-material/2018/11/parallel-patterns-oxford/slides/L01-Introduction.pdf)
 ---
-# Creational Patterns
-
-
-- Factory
-- Abstract factory
-- Builder
-- Singleton
-- Prototype
-
----
-# Structural
-
-- Adapter
-- Bridge
-- Composite
-- Decorator
-- Facade
-- Flyweight
-- Proxy
-
----
-# Behavourial
-
-- Chain of Responsibility
-- Command
-- Iterator
-- Mediator
-- Memento
-- Observer
-- State
-- Strategy
-- Template Method
-- Visitor
-
