@@ -47,17 +47,27 @@ As before, you can compile with `make`.
 5. Test your implementation using `main.cpp`. For each of the member functions of `Triangle` and `Tetrahedron`, which class in the inheritance stack originally defined the function? Which class is providing the implementation?
 
 
-## Part 2 - Virtual Functions
+## Part 2 - Multiple Inheritance
 
 List the files in `part2`:
 
 ```bash
-$ cd archer2-cpp/exercises/5-templates/part2
+$ cd archer2-cpp/exercises/7-inheritance/part2
+$ ls
+Makefile  element.hpp  main.cpp  tetrahedron.hpp  triangle.hpp
+```
+
+## Part 3 - Virtual Functions
+
+List the files in `part3`:
+
+```bash
+$ cd archer2-cpp/exercises/5-templates/part3
 $ ls
 Makefile  element.hpp  main.cpp  tetrahedron.hpp
 ```
 
-We have provided completed versions of `Element3D` and `Tetrahedron` in `element.hpp` and `tetrahedron.hpp` respectively, as well as a test program in `main.cpp`.
+We have provided completed versions of `Element3D`, `Triangle` and `Tetrahedron` in `element.hpp`, `triangle.hpp` and `tetrahedron.hpp` respectively, as well as a test program in `main.cpp`.
 
 1. Run `main.cpp`. Make a note of the output.
 2. Change the argument type of the `print()` function in `main.cpp` to `Element3D`.
@@ -67,27 +77,3 @@ We have provided completed versions of `Element3D` and `Tetrahedron` in `element
 > ### Extension
 > 
 > Lookup "pure virtual functions". Can you use these to convert `Element` and `Element3D` into abstract base classes? Which member functions should be pure virtual functions?
-
-
-## Part 3 - The Diamond Problem (Virtual Inheritance)
-
-List the files in `part3`:
-
-```bash
-$ cd archer2-cpp/exercises/5-templates/part3
-$ ls
-Makefile  element.hpp  main.cpp  quadrilateral.hpp  tetrahedron.hpp  triangle.hpp
-```
-
-We have provided completed versions of `element.hpp` and `tetrahedron.hpp`, as well as `parallelogram.hpp` and a test program in `main.cpp`.
-
-Both `Tetrahedron` and `Parallelogram` are defined using 4 vertices. They each have accessor functions `v1()`, `v2()`, `v3()` and `v4()` for each of the vertices.
-
-1. Lets extract these functions (along with `getNumVertices()`) and create a new `Element4V` class that inherits from `Element` to represent an element with 4 vertices. It should contain these accessor methods and `getNumVertices()`.
-2. Change `Tetrahedron` and `Parallelogram` to inherit from `Element4V` as well as `Element3D` and `Element2D` respectively.
-3. Run `make` to compile `main.cpp`. Can you explain the error message?
-4. Use virtual inheritance to solve the diamond problem. HINT: What changes do you need to make to the constructors? Derived classes are responsible for calling the constructor of any virtual classes they inherit.
-
-> ### Extension
-> 
-> Could we reduce the code duplication in the `Tetrahedron` and `Parallelogram` constructors by creating default constructors for some of the parent classes? There isn't a "right" answer, but C++ gives us flexibility to choose how we design our classes, and how we want to use them.
