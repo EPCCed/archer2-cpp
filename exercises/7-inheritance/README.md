@@ -57,6 +57,11 @@ $ ls
 Makefile  element.hpp  main.cpp  tetrahedron.hpp  triangle.hpp
 ```
 
+1. Copy your completed versions of `element.hpp`, `main.cpp`, `tetrahedron.hpp` and `triangle.hpp` from part 1.
+2. Implement the new `Material` class in `material.hpp`. A material should be defined by its name and density, and contain a single method `describe()` that runs a string.
+3. Update the `Tetrahedron` class to inherit from both `Element3D` and `Material`.
+4. Update `main.cpp` to print the new material properties of a tetrahedron using the `describe()` method.
+
 ## Part 3 - Virtual Functions
 
 List the files in `part3`:
