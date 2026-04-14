@@ -1,12 +1,13 @@
-CXXFLAGS = --std=c++14 -I../include
+CXXFLAGS = --std=c++17 -I../include
 
-test : complex.o test.o
-	$(CXX) $^ -o $@
+main : main.cpp element.hpp material.hpp tetrahedron.hpp triangle.hpp vector.o vertex.o
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
-test.o : catch.hpp
+%.o : ../include/%.cpp
+	$(CXX) $(CXXFLAGS) -c $^ -o $@
 
-run : test
-	./test
+run : main
+	./main
 
 clean :
 	rm -rf *.o test

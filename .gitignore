@@ -16,6 +16,9 @@ exercises/6.1-my-array/part3
 exercises/6.1-my-array/test
 exercises/6.2-smart-pointers/part1/unique
 exercises/6.2-smart-pointers/part2/shared
+exercises/7-inheritance/part1/main
+exercises/7-inheritance/part2/main
+exercises/7-inheritance/part3/main
 exercises/8-algorithm/ex
 exercises/9-eigen/explicit
 exercises/9-eigen/implicit
