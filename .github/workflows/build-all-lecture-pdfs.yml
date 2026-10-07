@@ -1,0 +1,31 @@
+name: build-all-lecture-pdfs
+
+on: workflow_dispatch
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v5
+
+    - name: Install dependencies
+      run: npm install -g decktape
+
+    - name: Generate lecture slides
+      run: |
+        ALL_LECTURE_DIRS=$(for f in lectures/**/{README.md,index.html}; do dirname "$f"; done | sort -u)
+        for dir in ${ALL_LECTURE_DIRS}; do
+          decktape --chrome-arg=--disable-web-security --chrome-arg=--no-sandbox remark ${{ github.workspace }}/${dir}/index.html ${{ github.workspace }}/${dir}/slides.pdf
+        done
+
+    - if: steps.changed-lectures.outputs.any_changed == 'true'
+      name: Commit and push PDFs
+      run: |
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'actions@github.com'
+        git add lectures/**/slides.pdf
+        git commit -m "Update generated PDFs" || echo "No changes to commit"
+        git push
