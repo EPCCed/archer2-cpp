@@ -474,16 +474,13 @@ Makefile  test.cpp  vector_ex.cpp  vector_ex.hpp
 
 As before, `test.cpp` holds some basic unit tests and you can compile with `make`.
 
-**Part 1**
+**Part 1 - `std::vector`**
 
-`vector_ex.cpp`/`.hpp` hold some functions that work on `std::vector` - provide
-the implementations.
+Implement the functions defined in `vector_ex.hpp`/`.cpp`.
 
 
-**Part 2**
+**Part 2 - `std::map`**
 
-Implement, in a new header/implementation pair of files (`map_ex.hpp`/`.cpp`),
-a function (`AddWord`) that adds a string to a `std::map` as the key, the value
-being the length of the string. Note: Copy your completed `vector_ex.cpp`/`.hpp` files from part 1.
+In `map_ex.hpp`/`.cpp`, implement a function (`AddWord`) that adds words to a `std::map`. The map should have string keys and integer values, where the integer value is the length of the key. The function should return `true` if the word was added, or `false` if the word was already present in the map.
 
 You can find documentatation for `map` here: https://en.cppreference.com/

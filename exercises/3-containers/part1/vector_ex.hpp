@@ -12,7 +12,8 @@
 std::vector<int> GetEven(std::vector<int> const& source);
 
 // Given a vector of ints, print the data to the stream
-// [0, 1]
+// Example output: [ 0, 1]
+// Or for an empty vector: [ ]
 void PrintVectorOfInt(std::ostream& output, std::vector<int> const& data);
 
 #endif
