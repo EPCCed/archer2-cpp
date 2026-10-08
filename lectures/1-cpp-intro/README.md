@@ -290,7 +290,7 @@ git clone https://github.com/EPCCed/archer2-cpp
 
 Then you can change to the directory with this simple program
 ```
-cd archer2-cpp/lectures/cpp-intro/hello
+cd archer2-cpp/exercises/1-hello-world
 ```
 
 ---

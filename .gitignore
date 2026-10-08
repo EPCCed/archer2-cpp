@@ -3,6 +3,7 @@ catch.hpp
 core
 
 # Ignore executables created by the exercises
+exercises/1-hello-world/hello
 exercises/2.1-class-types/test
 exercises/2.2-complex/test
 exercises/3-containers/part1/test
