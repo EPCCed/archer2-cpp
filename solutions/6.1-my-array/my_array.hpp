@@ -69,6 +69,7 @@ public:
     std::swap(size, other.size);
     std::swap(data, other.data);
     log("Move assign");
+    return *this;
   }
 
 /* END */
