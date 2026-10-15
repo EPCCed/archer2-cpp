@@ -1,4 +1,5 @@
 # Ignore executables created by the solutions
+1-hello-world/hello
 2.1-class-types/test
 2.2-complex/test
 3-containers/part1/test
