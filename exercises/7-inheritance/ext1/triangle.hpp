@@ -1,0 +1,1 @@
+// Copy your completed 'triangle.hpp' from the previous exercise here

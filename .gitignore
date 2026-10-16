@@ -18,7 +18,8 @@ exercises/6.2-smart-pointers/part1/unique
 exercises/6.2-smart-pointers/part2/shared
 exercises/7-inheritance/part1/main
 exercises/7-inheritance/part2/main
-exercises/7-inheritance/part3/main
+exercises/7-inheritance/ext1/main
+exercises/7-inheritance/ext2/main
 exercises/8-algorithm/ex
 exercises/9-eigen/explicit
 exercises/9-eigen/implicit

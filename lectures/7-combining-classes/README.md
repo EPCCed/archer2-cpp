@@ -672,24 +672,27 @@ int main()
 https://www.geeksforgeeks.org/cpp-polymorphism/
 ---
 template:titleslide
-## Exercise
+# Exercise
 
 ---
-## Exercise
+# Inheritance exercise
 
-Take the example complex class we wrote a couple of days ago and ...
+In your clone of this repository, find the `7-inheritance` exercise. It contains five sub-directories `include`, `part1`, `part2`, `ext1` and `ext2`.
 
+The `include` sub-directory contains pre-made `Vector` and `Vertex` classes that you will need for the exercise - you do not need to modify these files.
 
-- **`Try inheritance`**: 
-  - Split complex up so that the contructors and data members live in the base class and a magnitude squared function is in a derived class
-- **` Try multi-level inheritance`**:
-  - Now in a third class write a absolute magnitude function and have this class inherit from the previous 
-- **`Try multiple inheritance`**: 
-  - Take new copy of your complex class with only data members
-  - Write an real and imaginary getter class
-  - Write a magnitude class that inherits the other two classes to make a complete complex class.
+There are more details for all the parts in the exercise README.
 
-Hint: The top final class (the one that inherits from elsewhere) needs to be the one called 'Complex' for the tests to work.
+**Part 1 - Inheritance**
+
+The `Element` class contains a set of vertices to define a geometric element. `Element2D` and `Element3D` both inherit `Element` to define 2D and 3D elements respectively. Complete the implementations.
+
+**Part 2 - Multilevel Inheritance**
+
+Create a second level of inheritance by implementing the `Triangle` and `Tetrahedron` classes. These extend `Element2D` and `Element3D` respectively.
+
+**Extensions: ** `ext1` and `ext2` extend the class structure with more advanced concepts. Do not worry if you don't get to these during the course!
+
 ---
 template: titleslide
 ## Great we can combine classes... ...now what?
